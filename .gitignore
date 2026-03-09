@@ -1,0 +1,6 @@
+.DS_Store
+cgi-bin/
+*.zip
+*.log
+original_files/
+mp3/
