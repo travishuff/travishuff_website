@@ -12,12 +12,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Deploy via rsync
-        uses: Burnett01/rsync-deployments@7.0.1
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          switches: -avz --delete
-          path: ./
-          remote_path: /home/travis8/public_html/
-          remote_host: travishuff.com
-          remote_user: travis8
-          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /public_html/
