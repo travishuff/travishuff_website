@@ -26,6 +26,26 @@ npm run dev       # http://localhost:5173
 npm run build     # outputs to dist/
 ```
 
+## Testing
+
+Unit tests use [Vitest](https://vitest.dev/) + [Testing Library](https://testing-library.com/docs/react-testing-library/intro/) with jsdom.
+
+```bash
+npm test          # watch mode
+npm run test:run  # single run
+```
+
+35 tests across 8 files cover components and pages:
+
+- `CyclingTitle` — title cycling, interval cleanup
+- `Ticker` — content rendering, aria-hidden duplicate
+- `CreditsBlock` — all 6 credits, Spotify links, new-tab attributes
+- `Nav` — links, routes, email, roles tagline
+- `PageLayout` — children, background click navigates home, content click does not
+- `Credits` — both table sections, known entries, role legend
+- `Discography` — table headers, known entries
+- `Gear` — both gear sections, known items, removed items absent
+
 ## Deployment
 
 Pushing to `main` triggers a GitHub Actions workflow that:
