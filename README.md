@@ -14,7 +14,7 @@ Built with React + TypeScript + Vite. Amber-on-black terminal aesthetic with IBM
 ## Stack
 
 - [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/) + [Vite](https://vitejs.dev/)
-- [React Router v6](https://reactrouter.com/) for client-side routing
+- [React Router v7](https://reactrouter.com/) for client-side routing
 - CSS Modules for component-scoped styles
 - [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono) via Google Fonts
 - [ESLint 9](https://eslint.org/) + [typescript-eslint](https://typescript-eslint.io/) for linting
