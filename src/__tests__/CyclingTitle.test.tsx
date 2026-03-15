@@ -31,7 +31,7 @@ describe('CyclingTitle', () => {
   })
 
   it('cleans up interval on unmount', () => {
-    const clearSpy = vi.spyOn(global, 'clearInterval')
+    const clearSpy = vi.spyOn(globalThis, 'clearInterval')
     const { unmount } = render(<CyclingTitle />)
     unmount()
     expect(clearSpy).toHaveBeenCalled()

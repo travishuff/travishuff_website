@@ -1,9 +1,10 @@
+import type { ReactElement } from 'react'
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import { MemoryRouter } from 'react-router-dom'
 import Discography from '../pages/Discography'
 
-const renderWithRouter = (ui) => render(<MemoryRouter>{ui}</MemoryRouter>)
+const renderWithRouter = (ui: ReactElement) => render(<MemoryRouter>{ui}</MemoryRouter>)
 
 describe('Discography page', () => {
   it('renders the Discography heading', () => {
@@ -32,7 +33,6 @@ describe('Discography page', () => {
 
   it('renders role information', () => {
     renderWithRouter(<Discography />)
-    // Multiple entries have 'Engineer' in the role column
     const roleCells = screen.getAllByText(/engineer/i)
     expect(roleCells.length).toBeGreaterThan(0)
   })

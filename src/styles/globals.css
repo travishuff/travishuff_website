@@ -2,21 +2,25 @@
 
 :root {
   --black: #000000;
-  --amber: #C87810;
-  --amber-bright: #E89020;
-  --amber-dim: #6B4010;
-  --amber-ghost: #2A1A05;
-  --amber-faint: #150D02;
+  --amber: #c87810;
+  --amber-bright: #e89020;
+  --amber-dim: #6b4010;
+  --amber-ghost: #2a1a05;
+  --amber-faint: #150d02;
   --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   width: 100%;
   height: 100%;
   background: var(--black);

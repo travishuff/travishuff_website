@@ -1,9 +1,10 @@
+import type { ReactElement } from 'react'
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import { MemoryRouter } from 'react-router-dom'
 import Credits from '../pages/Credits'
 
-const renderWithRouter = (ui) => render(<MemoryRouter>{ui}</MemoryRouter>)
+const renderWithRouter = (ui: ReactElement) => render(<MemoryRouter>{ui}</MemoryRouter>)
 
 describe('Credits page', () => {
   it('renders the Released Co-Writes section heading', () => {
