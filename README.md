@@ -41,6 +41,8 @@ npm run typecheck     # TypeScript type checking
 
 ## Testing
 
+### Unit Tests
+
 Unit tests use [Vitest](https://vitest.dev/) + [Testing Library](https://testing-library.com/docs/react-testing-library/intro/) with jsdom.
 
 ```bash
@@ -82,5 +84,3 @@ Pushing to `main` triggers a GitHub Actions workflow that:
 1. Installs dependencies (`npm ci`)
 2. Builds the site (`npm run build`)
 3. Uploads `dist/` to the server via FTP
-
-FTP credentials are stored as GitHub repository secrets: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`.
