@@ -38,7 +38,7 @@ const MUSIC_GEAR = [
   '1969 Gibson ES-335',
   '1974 Les Paul',
   '1954 Les Paul Junior',
-  'Nash Telecaster (\'52 RI)',
+  "Nash Telecaster ('52 RI)",
   '1968 Martin D-18 Acoustic',
   '1972 Fender P-Bass',
   '6-piece Custom Maple Drumkit',
@@ -74,7 +74,9 @@ export default function Gear() {
           <h2 className={styles.sectionTitle}>Recording Gear</h2>
           <ul className={styles.list}>
             {RECORDING_GEAR.map((item) => (
-              <li key={item} className={styles.item}>{item}</li>
+              <li key={item} className={styles.item}>
+                {item}
+              </li>
             ))}
           </ul>
         </section>
@@ -83,7 +85,9 @@ export default function Gear() {
           <h2 className={styles.sectionTitle}>Music Gear</h2>
           <ul className={styles.list}>
             {MUSIC_GEAR.map((item) => (
-              <li key={item} className={styles.item}>{item}</li>
+              <li key={item} className={styles.item}>
+                {item}
+              </li>
             ))}
           </ul>
         </section>

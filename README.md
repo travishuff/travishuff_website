@@ -2,7 +2,7 @@
 
 Personal website for Travis Huff — producer, engineer, mixer, programmer.
 
-Built with React + Vite. Amber-on-black terminal aesthetic with IBM Plex Mono.
+Built with React + TypeScript + Vite. Amber-on-black terminal aesthetic with IBM Plex Mono.
 
 ## Pages
 
@@ -13,10 +13,14 @@ Built with React + Vite. Amber-on-black terminal aesthetic with IBM Plex Mono.
 
 ## Stack
 
-- [React 18](https://react.dev/) + [Vite](https://vitejs.dev/)
-- [React Router v6](https://reactrouter.com/) for client-side routing
+- [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/) + [Vite](https://vitejs.dev/)
+- [React Router v7](https://reactrouter.com/) for client-side routing
 - CSS Modules for component-scoped styles
 - [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono) via Google Fonts
+- [ESLint 9](https://eslint.org/) + [typescript-eslint](https://typescript-eslint.io/) for linting
+- [Prettier](https://prettier.io/) for code formatting
+- [Vitest](https://vitest.dev/) + [Testing Library](https://testing-library.com/) for unit tests
+- [Playwright](https://playwright.dev/) for end-to-end tests
 
 ## Development
 
@@ -24,6 +28,15 @@ Built with React + Vite. Amber-on-black terminal aesthetic with IBM Plex Mono.
 npm install
 npm run dev       # http://localhost:5173
 npm run build     # outputs to dist/
+```
+
+## Linting & Formatting
+
+```bash
+npm run lint          # ESLint
+npm run format        # Prettier (auto-fix)
+npm run format:check  # Prettier (check only)
+npm run typecheck     # TypeScript type checking
 ```
 
 ## Testing
@@ -46,9 +59,26 @@ npm run test:run  # single run
 - `Discography` — table headers, known entries
 - `Gear` — both gear sections, known items, removed items absent
 
+### End-to-End Tests
+
+E2E tests use [Playwright](https://playwright.dev/) with Chromium (auto-starts the dev server).
+
+```bash
+npm run test:e2e  # run all e2e tests
+```
+
+24 tests across 5 specs:
+
+- **Routes** — all 4 pages render correctly, navigation between pages works
+- **Spotify links** — 6 links with correct URLs, `target="_blank"`, `rel="noopener noreferrer"`
+- **Click-away** — background click navigates home on all sub-pages, content click does not
+- **Glitch animation** — photo, scanlines, glitch slices present; CSS animations and clip-path applied; 7s duration; sepia filter
+- **Responsive** — photo centered on mobile, bottom text pinned, 90vw photo width, nav functional, sub-page content scrolls
+
 ## Deployment
 
 Pushing to `main` triggers a GitHub Actions workflow that:
+
 1. Installs dependencies (`npm ci`)
 2. Builds the site (`npm run build`)
 3. Uploads `dist/` to the server via FTP

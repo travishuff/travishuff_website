@@ -1,9 +1,10 @@
+import type { ReactElement } from 'react'
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import { MemoryRouter } from 'react-router-dom'
 import Nav from '../components/Nav'
 
-const renderWithRouter = (ui, { initialEntries = ['/'] } = {}) =>
+const renderWithRouter = (ui: ReactElement, { initialEntries = ['/'] } = {}) =>
   render(<MemoryRouter initialEntries={initialEntries}>{ui}</MemoryRouter>)
 
 describe('Nav', () => {
@@ -33,7 +34,10 @@ describe('Nav', () => {
   it('nav links point to correct routes', () => {
     renderWithRouter(<Nav />)
     expect(screen.getByRole('link', { name: /credits/i })).toHaveAttribute('href', '/credits')
-    expect(screen.getByRole('link', { name: /discography/i })).toHaveAttribute('href', '/discography')
+    expect(screen.getByRole('link', { name: /discography/i })).toHaveAttribute(
+      'href',
+      '/discography',
+    )
     expect(screen.getByRole('link', { name: /gear/i })).toHaveAttribute('href', '/gear')
   })
 })

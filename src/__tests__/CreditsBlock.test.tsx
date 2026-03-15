@@ -1,9 +1,10 @@
+import type { ReactElement } from 'react'
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import { MemoryRouter } from 'react-router-dom'
 import CreditsBlock from '../components/CreditsBlock'
 
-const renderWithRouter = (ui) => render(<MemoryRouter>{ui}</MemoryRouter>)
+const renderWithRouter = (ui: ReactElement) => render(<MemoryRouter>{ui}</MemoryRouter>)
 
 describe('CreditsBlock', () => {
   it('renders all six notable credits', () => {
@@ -19,7 +20,7 @@ describe('CreditsBlock', () => {
   it('each credit links to Spotify', () => {
     renderWithRouter(<CreditsBlock />)
     const links = screen.getAllByRole('link')
-    links.forEach(link => {
+    links.forEach((link) => {
       expect(link).toHaveAttribute('href', expect.stringContaining('open.spotify.com'))
     })
   })
@@ -27,7 +28,7 @@ describe('CreditsBlock', () => {
   it('all Spotify links open in a new tab', () => {
     renderWithRouter(<CreditsBlock />)
     const links = screen.getAllByRole('link')
-    links.forEach(link => {
+    links.forEach((link) => {
       expect(link).toHaveAttribute('target', '_blank')
       expect(link).toHaveAttribute('rel', 'noopener noreferrer')
     })

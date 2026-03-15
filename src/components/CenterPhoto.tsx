@@ -4,11 +4,7 @@ export default function CenterPhoto() {
   return (
     <div className={styles.container}>
       <div className={styles.frame}>
-        <img
-          src="/images/travis9000k.jpg"
-          alt="Travis Huff"
-          className={styles.photo}
-        />
+        <img src="/images/travis9000k.jpg" alt="Travis Huff" className={styles.photo} />
         <div className={styles.scanlines} aria-hidden="true" />
         <div className={styles.glitch} aria-hidden="true">
           <img src="/images/travis9000k.jpg" alt="" className={styles.glitchSlice1} />

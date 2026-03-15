@@ -9,8 +9,8 @@ export default function CyclingTitle() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex(i => (i + 1) % TITLES.length)
-      setAnimKey(k => k + 1)
+      setIndex((i) => (i + 1) % TITLES.length)
+      setAnimKey((k) => k + 1)
     }, 3200)
     return () => clearInterval(interval)
   }, [])
