@@ -16,4 +16,14 @@ const spaFallback = {
 export default defineConfig({
   plugins: [react(), spaFallback],
   publicDir: 'public',
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/test/setup.js',
+    css: {
+      modules: {
+        classNameStrategy: 'non-scoped',
+      },
+    },
+  },
 })
