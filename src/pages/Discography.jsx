@@ -60,8 +60,8 @@ export default function Discography() {
             </tr>
           </thead>
           <tbody>
-            {DISCOGRAPHY.map((row, i) => (
-              <tr key={i} className={styles.row}>
+            {DISCOGRAPHY.map((row) => (
+              <tr key={row.artist + row.album} className={styles.row}>
                 <td className={`${styles.td} ${styles.artist}`}>{row.artist}</td>
                 <td className={styles.td}>{row.album}</td>
                 <td className={`${styles.td} ${styles.label}`}>{row.label}</td>

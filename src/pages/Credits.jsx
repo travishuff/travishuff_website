@@ -76,8 +76,8 @@ export default function Credits() {
             </tr>
           </thead>
           <tbody>
-            {COWRITES.map((row, i) => (
-              <tr key={i} className={styles.row}>
+            {COWRITES.map((row) => (
+              <tr key={row.artist + row.song} className={styles.row}>
                 <td className={`${styles.td} ${styles.artist}`}>{row.artist}</td>
                 <td className={styles.td}>{row.song}</td>
                 <td className={`${styles.td} ${styles.label}`}>{row.label}</td>
@@ -99,8 +99,8 @@ export default function Credits() {
             </tr>
           </thead>
           <tbody>
-            {CREDITS.map((row, i) => (
-              <tr key={i} className={styles.row}>
+            {CREDITS.map((row) => (
+              <tr key={row.artist + row.project} className={styles.row}>
                 <td className={`${styles.td} ${styles.artist}`}>{row.artist}</td>
                 <td className={styles.td}>{row.project}</td>
                 <td className={`${styles.td} ${styles.label}`}>{row.label}</td>

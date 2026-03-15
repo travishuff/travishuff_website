@@ -17,7 +17,6 @@
 
 .track span {
   display: inline-block;
-  padding-right: 0;
 }
 
 @keyframes scroll {

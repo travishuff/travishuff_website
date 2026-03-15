@@ -73,8 +73,8 @@ export default function Gear() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Recording Gear</h2>
           <ul className={styles.list}>
-            {RECORDING_GEAR.map((item, i) => (
-              <li key={i} className={styles.item}>{item}</li>
+            {RECORDING_GEAR.map((item) => (
+              <li key={item} className={styles.item}>{item}</li>
             ))}
           </ul>
         </section>
@@ -82,8 +82,8 @@ export default function Gear() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Music Gear</h2>
           <ul className={styles.list}>
-            {MUSIC_GEAR.map((item, i) => (
-              <li key={i} className={styles.item}>{item}</li>
+            {MUSIC_GEAR.map((item) => (
+              <li key={item} className={styles.item}>{item}</li>
             ))}
           </ul>
         </section>
