@@ -16,7 +16,6 @@
 @media (max-width: 600px) {
   .frame {
     width: 90vw;
-    aspect-ratio: 186 / 102;
   }
 }
 
