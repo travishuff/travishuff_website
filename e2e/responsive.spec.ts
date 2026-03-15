@@ -57,6 +57,20 @@ test.describe('Responsive layout on narrow viewports', () => {
     expect(parseInt(bottom)).toBeLessThanOrEqual(20)
   })
 
+  test('photo maintains correct aspect ratio on mobile', async ({ page }) => {
+    await page.goto('/')
+
+    // The .frame div is the direct parent of the photo
+    const frame = page.locator('img[alt="Travis Huff"]').locator('..')
+    const box = await frame.boundingBox()
+    expect(box).not.toBeNull()
+
+    // aspect-ratio: 186 / 102 ≈ 1.8235
+    const expectedRatio = 186 / 102
+    const actualRatio = box!.width / box!.height
+    expect(Math.abs(actualRatio - expectedRatio)).toBeLessThan(0.05)
+  })
+
   test('photo uses 90vw width on mobile', async ({ page }) => {
     await page.goto('/')
 
