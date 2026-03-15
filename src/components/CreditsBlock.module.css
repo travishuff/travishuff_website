@@ -1,0 +1,44 @@
+.block {
+  text-align: right;
+}
+
+.label {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--amber-ghost);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.item {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 10px;
+  font-size: 11px;
+}
+
+.artist {
+  color: var(--amber);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.project {
+  color: var(--amber-dim);
+  font-size: 10px;
+}
+
+.role {
+  color: var(--amber-ghost);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  min-width: 12px;
+}

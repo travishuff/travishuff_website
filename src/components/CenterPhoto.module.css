@@ -1,0 +1,121 @@
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.frame {
+  position: relative;
+  width: clamp(220px, 40vw, 380px);
+  height: clamp(220px, 40vw, 380px);
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .container {
+    position: static;
+    transform: none;
+    order: 2;
+    display: flex;
+    justify-content: center;
+    padding-top: 24px;
+  }
+
+  .frame {
+    width: 75vw;
+    height: 75vw;
+  }
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: sepia(1) hue-rotate(5deg) saturate(0.9) brightness(0.85) contrast(1.1);
+  display: block;
+}
+
+/* CRT scanlines */
+.scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.45) 2px,
+    rgba(0, 0, 0, 0.45) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Edge vignette to blend into background */
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Glitch slices */
+.glitch {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0;
+  animation: glitchTrigger 6s infinite;
+}
+
+.glitchSlice1,
+.glitchSlice2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: sepia(1) hue-rotate(5deg) saturate(0.9) brightness(0.85);
+}
+
+.glitchSlice1 {
+  clip-path: polygon(0 15%, 100% 15%, 100% 35%, 0 35%);
+  animation: glitchSlice1 6s infinite;
+}
+
+.glitchSlice2 {
+  clip-path: polygon(0 60%, 100% 60%, 100% 72%, 0 72%);
+  animation: glitchSlice2 6s infinite;
+}
+
+@keyframes glitchTrigger {
+  0%, 88%, 100% { opacity: 0; }
+  89%, 94%      { opacity: 1; }
+  95%           { opacity: 0; }
+}
+
+@keyframes glitchSlice1 {
+  0%, 88%  { transform: translateX(0); }
+  89%      { transform: translateX(-8px); }
+  91%      { transform: translateX(6px); }
+  93%      { transform: translateX(-3px); }
+  95%, 100% { transform: translateX(0); }
+}
+
+@keyframes glitchSlice2 {
+  0%, 88%  { transform: translateX(0); }
+  89%      { transform: translateX(10px); }
+  91%      { transform: translateX(-5px); }
+  93%      { transform: translateX(4px); }
+  95%, 100% { transform: translateX(0); }
+}
