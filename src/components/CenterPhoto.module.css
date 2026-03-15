@@ -73,7 +73,7 @@
   pointer-events: none;
   z-index: 4;
   opacity: 0;
-  animation: glitchTrigger 3.5s infinite;
+  animation: glitchTrigger 7s infinite;
 }
 
 .glitchSlice1,
@@ -90,12 +90,12 @@
 
 .glitchSlice1 {
   clip-path: polygon(0 15%, 100% 15%, 100% 35%, 0 35%);
-  animation: glitchSlice1 3.5s infinite;
+  animation: glitchSlice1 7s infinite;
 }
 
 .glitchSlice2 {
   clip-path: polygon(0 60%, 100% 60%, 100% 72%, 0 72%);
-  animation: glitchSlice2 3.5s infinite;
+  animation: glitchSlice2 7s infinite;
 }
 
 @keyframes glitchTrigger {
