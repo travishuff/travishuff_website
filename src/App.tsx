@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Home from './pages/Home'
 import Credits from './pages/Credits'
 import Discography from './pages/Discography'
@@ -12,6 +12,7 @@ export default function App() {
         <Route path="/credits" element={<Credits />} />
         <Route path="/discography" element={<Discography />} />
         <Route path="/gear" element={<Gear />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   )

@@ -36,6 +36,18 @@ test.describe('All 4 routes render correctly', () => {
     await expect(page.getByText('Moog Subsequent 37')).toBeVisible()
   })
 
+  test('unknown route redirects to homepage', async ({ page }) => {
+    await page.goto('/foo')
+    await expect(page).toHaveURL('/')
+    await expect(page.locator('img[alt="Travis Huff"]')).toBeVisible()
+  })
+
+  test('deeply nested unknown route redirects to homepage', async ({ page }) => {
+    await page.goto('/some/random/path')
+    await expect(page).toHaveURL('/')
+    await expect(page.locator('img[alt="Travis Huff"]')).toBeVisible()
+  })
+
   test('navigation links work between pages', async ({ page }) => {
     await page.goto('/')
     await page.getByRole('link', { name: /credits/i }).click()

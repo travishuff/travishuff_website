@@ -1,14 +1,10 @@
-import type { ReactElement } from 'react'
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
-import { MemoryRouter } from 'react-router-dom'
 import CreditsBlock from '../components/CreditsBlock'
-
-const renderWithRouter = (ui: ReactElement) => render(<MemoryRouter>{ui}</MemoryRouter>)
 
 describe('CreditsBlock', () => {
   it('renders all six notable credits', () => {
-    renderWithRouter(<CreditsBlock />)
+    render(<CreditsBlock />)
     expect(screen.getByText('One Direction')).toBeInTheDocument()
     expect(screen.getByText('Ariana Grande')).toBeInTheDocument()
     expect(screen.getByText('Selena Gomez')).toBeInTheDocument()
@@ -18,7 +14,7 @@ describe('CreditsBlock', () => {
   })
 
   it('each credit links to Spotify', () => {
-    renderWithRouter(<CreditsBlock />)
+    render(<CreditsBlock />)
     const links = screen.getAllByRole('link')
     links.forEach((link) => {
       expect(link).toHaveAttribute('href', expect.stringContaining('open.spotify.com'))
@@ -26,7 +22,7 @@ describe('CreditsBlock', () => {
   })
 
   it('all Spotify links open in a new tab', () => {
-    renderWithRouter(<CreditsBlock />)
+    render(<CreditsBlock />)
     const links = screen.getAllByRole('link')
     links.forEach((link) => {
       expect(link).toHaveAttribute('target', '_blank')
@@ -35,7 +31,7 @@ describe('CreditsBlock', () => {
   })
 
   it('renders the role legend', () => {
-    renderWithRouter(<CreditsBlock />)
+    render(<CreditsBlock />)
     expect(screen.getByText(/P=producer/i)).toBeInTheDocument()
   })
 })
