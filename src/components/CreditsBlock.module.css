@@ -18,11 +18,35 @@
 }
 
 .item {
+  font-size: 11px;
+}
+
+.link {
   display: flex;
   align-items: baseline;
   justify-content: flex-end;
   gap: 10px;
-  font-size: 11px;
+  text-decoration: none;
+  border-radius: 2px;
+  padding: 3px 6px;
+  margin: 0 -6px;
+  transition: background 0.15s ease;
+}
+
+.link:hover {
+  background: var(--amber-ghost);
+}
+
+.link:hover .artist {
+  color: var(--amber-bright);
+}
+
+.link:hover .project {
+  color: var(--amber-dim);
+}
+
+.link:hover .role {
+  color: var(--amber-dim);
 }
 
 .artist {
