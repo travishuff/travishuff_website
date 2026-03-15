@@ -12,6 +12,19 @@
   gap: 20px;
 }
 
+.homeLink {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--amber);
+  text-transform: lowercase;
+  transition: color 0.2s;
+}
+
+.homeLink:hover {
+  color: var(--amber-bright);
+}
+
 .emailLink {
   display: flex;
   align-items: center;
@@ -32,6 +45,10 @@
 }
 
 .navLink:hover {
+  color: var(--amber);
+}
+
+.active {
   color: var(--amber);
 }
 

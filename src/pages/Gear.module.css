@@ -1,0 +1,45 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 80px;
+}
+
+.section {
+  margin-bottom: 48px;
+}
+
+.sectionTitle {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber-dim);
+  border-bottom: 1px solid var(--amber-ghost);
+  padding-bottom: 10px;
+  margin: 0 0 20px 0;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  font-size: 11px;
+  color: var(--amber-dim);
+  line-height: 2;
+  border-bottom: 1px solid rgba(42, 26, 5, 0.4);
+  padding: 2px 0;
+}
+
+.item:hover {
+  color: var(--amber);
+}
+
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

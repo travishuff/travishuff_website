@@ -38,6 +38,29 @@ a:hover {
   color: var(--amber-bright);
 }
 
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--amber-ghost);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--amber-dim);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--amber-ghost) var(--black);
+}
+
 /* Full-page subtle CRT scanline overlay */
 body::before {
   content: '';
