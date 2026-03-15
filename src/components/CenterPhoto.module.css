@@ -14,15 +14,6 @@
 }
 
 @media (max-width: 600px) {
-  .container {
-    position: static;
-    transform: none;
-    order: 2;
-    display: flex;
-    justify-content: center;
-    padding-top: 24px;
-  }
-
   .frame {
     width: 90vw;
     aspect-ratio: 186 / 102;

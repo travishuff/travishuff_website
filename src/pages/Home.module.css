@@ -33,24 +33,15 @@
   z-index: 2;
 }
 
-/* Mobile: stack title on top, credits below the photo */
+/* Mobile: tighten spacing, keep everything absolutely positioned */
 @media (max-width: 600px) {
-  .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
   .bottomLeft {
-    position: static;
-    order: 3;
-    padding: 16px 16px 0;
+    bottom: 16px;
+    left: 14px;
   }
 
   .bottomRight {
-    position: static;
-    order: 4;
-    padding: 8px 16px 20px;
-    text-align: right;
+    bottom: 16px;
+    right: 14px;
   }
 }
