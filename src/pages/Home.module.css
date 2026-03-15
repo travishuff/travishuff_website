@@ -1,0 +1,47 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.bottomLeft {
+  position: absolute;
+  bottom: 28px;
+  left: 24px;
+  z-index: 2;
+}
+
+.name {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--amber-dim);
+  text-transform: lowercase;
+  margin-top: 8px;
+}
+
+.bottomRight {
+  position: absolute;
+  bottom: 28px;
+  right: 24px;
+  z-index: 2;
+}
+
+/* Mobile: tighten spacing, keep everything absolutely positioned */
+@media (max-width: 600px) {
+  .bottomLeft {
+    bottom: 16px;
+    left: 14px;
+  }
+
+  .bottomRight {
+    bottom: 16px;
+    right: 14px;
+  }
+}

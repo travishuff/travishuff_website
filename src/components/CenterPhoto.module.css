@@ -1,0 +1,133 @@
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.frame {
+  position: relative;
+  width: clamp(320px, 55vw, 744px);
+  aspect-ratio: 186 / 102;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .frame {
+    width: 90vw;
+    aspect-ratio: 186 / 102;
+  }
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: sepia(1) hue-rotate(5deg) saturate(0.9) brightness(0.85) contrast(1.1);
+  display: block;
+}
+
+/* CRT scanlines */
+.scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.45) 2px,
+    rgba(0, 0, 0, 0.45) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Edge vignette to blend into background */
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Glitch slices */
+.glitch {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0;
+  animation: glitchTrigger 7s infinite;
+}
+
+.glitchSlice1,
+.glitchSlice2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: sepia(1) hue-rotate(5deg) saturate(0.9) brightness(0.85);
+}
+
+.glitchSlice1 {
+  clip-path: polygon(0 15%, 100% 15%, 100% 35%, 0 35%);
+  animation: glitchSlice1 7s infinite;
+}
+
+.glitchSlice2 {
+  clip-path: polygon(0 60%, 100% 60%, 100% 72%, 0 72%);
+  animation: glitchSlice2 7s infinite;
+}
+
+@keyframes glitchTrigger {
+  /* burst 1 — quick single flash */
+  0%, 30%, 36%, 88%, 100% { opacity: 0; }
+  31%, 35%                { opacity: 1; }
+  /* burst 2 — rapid stutter */
+  89%  { opacity: 1; }
+  90%  { opacity: 0; }
+  91%  { opacity: 1; }
+  92%  { opacity: 0; }
+  93%  { opacity: 1; }
+  95%  { opacity: 0; }
+}
+
+@keyframes glitchSlice1 {
+  /* burst 1 — subtle nudge, same narrow band */
+  0%, 30%   { transform: translateX(0);   clip-path: polygon(0 15%, 100% 15%, 100% 35%, 0 35%); }
+  31%       { transform: translateX(6px);  clip-path: polygon(0 15%, 100% 15%, 100% 35%, 0 35%); }
+  33%       { transform: translateX(-4px); clip-path: polygon(0 15%, 100% 15%, 100% 35%, 0 35%); }
+  36%, 88%  { transform: translateX(0);   clip-path: polygon(0 15%, 100% 15%, 100% 35%, 0 35%); }
+  /* burst 2 — wide bands thrashing across the full image */
+  89%       { transform: translateX(-24px); clip-path: polygon(0 40%, 100% 40%, 100% 58%, 0 58%); }
+  90%       { transform: translateX(20px);  clip-path: polygon(0 5%,  100% 5%,  100% 14%, 0 14%); }
+  91%       { transform: translateX(-18px); clip-path: polygon(0 68%, 100% 68%, 100% 82%, 0 82%); }
+  92%       { transform: translateX(28px);  clip-path: polygon(0 22%, 100% 22%, 100% 32%, 0 32%); }
+  93%       { transform: translateX(-10px); clip-path: polygon(0 50%, 100% 50%, 100% 62%, 0 62%); }
+  95%, 100% { transform: translateX(0);    clip-path: polygon(0 15%, 100% 15%, 100% 35%, 0 35%); }
+}
+
+@keyframes glitchSlice2 {
+  /* burst 1 — subtle nudge, same narrow band */
+  0%, 30%   { transform: translateX(0);   clip-path: polygon(0 60%, 100% 60%, 100% 72%, 0 72%); }
+  31%       { transform: translateX(-7px); clip-path: polygon(0 60%, 100% 60%, 100% 72%, 0 72%); }
+  33%       { transform: translateX(5px);  clip-path: polygon(0 60%, 100% 60%, 100% 72%, 0 72%); }
+  36%, 88%  { transform: translateX(0);   clip-path: polygon(0 60%, 100% 60%, 100% 72%, 0 72%); }
+  /* burst 2 — different wide bands, opposite phase to slice 1 */
+  89%       { transform: translateX(22px);  clip-path: polygon(0 0%,  100% 0%,  100% 10%, 0 10%); }
+  90%       { transform: translateX(-26px); clip-path: polygon(0 55%, 100% 55%, 100% 78%, 0 78%); }
+  91%       { transform: translateX(16px);  clip-path: polygon(0 30%, 100% 30%, 100% 44%, 0 44%); }
+  92%       { transform: translateX(-20px); clip-path: polygon(0 82%, 100% 82%, 100% 96%, 0 96%); }
+  93%       { transform: translateX(12px);  clip-path: polygon(0 10%, 100% 10%, 100% 22%, 0 22%); }
+  95%, 100% { transform: translateX(0);    clip-path: polygon(0 60%, 100% 60%, 100% 72%, 0 72%); }
+}

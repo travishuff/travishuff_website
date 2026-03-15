@@ -5,3 +5,6 @@ cgi-bin/
 *.log
 original_files/
 mp3/
+node_modules/
+dist/
+.vite/

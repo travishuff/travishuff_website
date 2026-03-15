@@ -1,0 +1,25 @@
+.wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid var(--amber-ghost);
+  padding: 6px 0;
+  white-space: nowrap;
+}
+
+.track {
+  display: inline-flex;
+  animation: scroll 40s linear infinite;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--amber-dim);
+  text-transform: uppercase;
+}
+
+.track span {
+  display: inline-block;
+}
+
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
