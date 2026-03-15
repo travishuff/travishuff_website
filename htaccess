@@ -1,2 +1,0 @@
-AuthName "Restricted Area"
-AuthUserFile "/home/travis8/.htpasswds/public_html/passwd"
