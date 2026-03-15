@@ -73,7 +73,7 @@
   pointer-events: none;
   z-index: 4;
   opacity: 0;
-  animation: glitchTrigger 6s infinite;
+  animation: glitchTrigger 3.5s infinite;
 }
 
 .glitchSlice1,
@@ -90,32 +90,39 @@
 
 .glitchSlice1 {
   clip-path: polygon(0 15%, 100% 15%, 100% 35%, 0 35%);
-  animation: glitchSlice1 6s infinite;
+  animation: glitchSlice1 3.5s infinite;
 }
 
 .glitchSlice2 {
   clip-path: polygon(0 60%, 100% 60%, 100% 72%, 0 72%);
-  animation: glitchSlice2 6s infinite;
+  animation: glitchSlice2 3.5s infinite;
 }
 
 @keyframes glitchTrigger {
-  0%, 88%, 100% { opacity: 0; }
-  89%, 94%      { opacity: 1; }
-  95%           { opacity: 0; }
+  0%, 30%, 36%, 88%, 100% { opacity: 0; }
+  31%, 35%                { opacity: 1; }
+  89%, 94%                { opacity: 1; }
+  95%                     { opacity: 0; }
 }
 
 @keyframes glitchSlice1 {
-  0%, 88%  { transform: translateX(0); }
-  89%      { transform: translateX(-8px); }
-  91%      { transform: translateX(6px); }
-  93%      { transform: translateX(-3px); }
+  0%, 30%   { transform: translateX(0); }
+  31%       { transform: translateX(6px); }
+  33%       { transform: translateX(-4px); }
+  36%, 88%  { transform: translateX(0); }
+  89%       { transform: translateX(-8px); }
+  91%       { transform: translateX(6px); }
+  93%       { transform: translateX(-3px); }
   95%, 100% { transform: translateX(0); }
 }
 
 @keyframes glitchSlice2 {
-  0%, 88%  { transform: translateX(0); }
-  89%      { transform: translateX(10px); }
-  91%      { transform: translateX(-5px); }
-  93%      { transform: translateX(4px); }
+  0%, 30%   { transform: translateX(0); }
+  31%       { transform: translateX(-7px); }
+  33%       { transform: translateX(5px); }
+  36%, 88%  { transform: translateX(0); }
+  89%       { transform: translateX(10px); }
+  91%       { transform: translateX(-5px); }
+  93%       { transform: translateX(4px); }
   95%, 100% { transform: translateX(0); }
 }
