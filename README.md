@@ -2,7 +2,7 @@
 
 Personal website for Travis Huff — producer, engineer, mixer, programmer.
 
-Built with React + Vite. Amber-on-black terminal aesthetic with IBM Plex Mono.
+Built with React + TypeScript + Vite. Amber-on-black terminal aesthetic with IBM Plex Mono.
 
 ## Pages
 
@@ -13,10 +13,13 @@ Built with React + Vite. Amber-on-black terminal aesthetic with IBM Plex Mono.
 
 ## Stack
 
-- [React 18](https://react.dev/) + [Vite](https://vitejs.dev/)
+- [React 18](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/) + [Vite](https://vitejs.dev/)
 - [React Router v6](https://reactrouter.com/) for client-side routing
 - CSS Modules for component-scoped styles
 - [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono) via Google Fonts
+- [ESLint 9](https://eslint.org/) + [typescript-eslint](https://typescript-eslint.io/) for linting
+- [Prettier](https://prettier.io/) for code formatting
+- [Vitest](https://vitest.dev/) + [Testing Library](https://testing-library.com/) for unit tests
 
 ## Development
 
@@ -24,6 +27,15 @@ Built with React + Vite. Amber-on-black terminal aesthetic with IBM Plex Mono.
 npm install
 npm run dev       # http://localhost:5173
 npm run build     # outputs to dist/
+```
+
+## Linting & Formatting
+
+```bash
+npm run lint          # ESLint
+npm run format        # Prettier (auto-fix)
+npm run format:check  # Prettier (check only)
+npm run typecheck     # TypeScript type checking
 ```
 
 ## Testing
@@ -49,6 +61,7 @@ npm run test:run  # single run
 ## Deployment
 
 Pushing to `main` triggers a GitHub Actions workflow that:
+
 1. Installs dependencies (`npm ci`)
 2. Builds the site (`npm run build`)
 3. Uploads `dist/` to the server via FTP
