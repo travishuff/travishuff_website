@@ -3,6 +3,12 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  cursor: pointer;
+}
+
+.content,
+.page > div {
+  cursor: default;
 }
 
 .content {
