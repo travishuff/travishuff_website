@@ -20,6 +20,7 @@ Built with React + TypeScript + Vite. Amber-on-black terminal aesthetic with IBM
 - [ESLint 9](https://eslint.org/) + [typescript-eslint](https://typescript-eslint.io/) for linting
 - [Prettier](https://prettier.io/) for code formatting
 - [Vitest](https://vitest.dev/) + [Testing Library](https://testing-library.com/) for unit tests
+- [Playwright](https://playwright.dev/) for end-to-end tests
 
 ## Development
 
@@ -57,6 +58,22 @@ npm run test:run  # single run
 - `Credits` — both table sections, known entries, role legend
 - `Discography` — table headers, known entries
 - `Gear` — both gear sections, known items, removed items absent
+
+### End-to-End Tests
+
+E2E tests use [Playwright](https://playwright.dev/) with Chromium (auto-starts the dev server).
+
+```bash
+npm run test:e2e  # run all e2e tests
+```
+
+24 tests across 5 specs:
+
+- **Routes** — all 4 pages render correctly, navigation between pages works
+- **Spotify links** — 6 links with correct URLs, `target="_blank"`, `rel="noopener noreferrer"`
+- **Click-away** — background click navigates home on all sub-pages, content click does not
+- **Glitch animation** — photo, scanlines, glitch slices present; CSS animations and clip-path applied; 7s duration; sepia filter
+- **Responsive** — photo centered on mobile, bottom text pinned, 90vw photo width, nav functional, sub-page content scrolls
 
 ## Deployment
 
