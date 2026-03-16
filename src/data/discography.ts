@@ -3,21 +3,30 @@ export interface DiscographyEntry {
   album: string
   label: string
   role: string
+  spotify?: string
 }
 
 export const DISCOGRAPHY: DiscographyEntry[] = [
-  { artist: 'A Rocket to the Moon', album: 'TBA', label: 'Fueled By Ramen', role: 'Engineer' },
+  {
+    artist: 'A Rocket to the Moon',
+    album: 'On Your Side',
+    label: 'Fueled By Ramen',
+    role: 'Engineer',
+    spotify: 'https://open.spotify.com/album/6VH5MF1nAVOTGbRyHdYDtV',
+  },
   {
     artist: '3OH!3 Feat. Katy Perry',
     album: 'Starstrukk',
     label: 'Photo Finish',
     role: 'Engineer',
+    spotify: 'https://open.spotify.com/album/1WovwGX7QyNs3zjMmROAzB',
   },
   {
     artist: 'Pop Levi',
     album: 'Police $ign / Terrifying',
     label: 'Ninja Tune',
     role: 'Producer / Engineer / Mixer',
+    spotify: 'https://open.spotify.com/album/6pcIo7jAfeUwxF1dwuW49y',
   },
   { artist: 'Anina', album: 'Not My Boyfriend', label: '—', role: 'Producer / Engineer / Mixer' },
   {
@@ -26,7 +35,13 @@ export const DISCOGRAPHY: DiscographyEntry[] = [
     label: '—',
     role: 'Writer / Producer / Engineer / Mixer',
   },
-  { artist: 'Pop Levi', album: 'Never Never Love', label: 'Ninja Tune', role: 'Engineer / Mixer' },
+  {
+    artist: 'Pop Levi',
+    album: 'Never Never Love',
+    label: 'Ninja Tune',
+    role: 'Engineer / Mixer',
+    spotify: 'https://open.spotify.com/album/7I6xyg55Bl96Gzm07OrXSi',
+  },
   {
     artist: 'Whole Wheat Bread',
     album: 'The Hearts of Hoodlums',
@@ -35,12 +50,18 @@ export const DISCOGRAPHY: DiscographyEntry[] = [
   },
   { artist: 'Heartstop', album: 'Moments EP', label: 'Indie', role: 'Producer / Engineer / Mixer' },
   { artist: 'Leena Thavisin', album: 'TBA', label: 'Capitol', role: 'Engineer' },
-  { artist: 'The Invincibles', album: 'TBA', label: 'TBA', role: 'Producer / Engineer / Mixer' },
+  {
+    artist: 'The Invincibles',
+    album: 'TBA',
+    label: 'Fighting Records',
+    role: 'Producer / Engineer / Mixer',
+  },
   {
     artist: 'Grace Potter and the Nocturnals',
     album: 'This Is Somewhere',
     label: 'Hollywood',
     role: 'Engineer',
+    spotify: 'https://open.spotify.com/album/2LyZtk8ocDxyqw8CLunluX',
   },
   {
     artist: "The King's Royal",
@@ -48,25 +69,33 @@ export const DISCOGRAPHY: DiscographyEntry[] = [
     label: 'Rukus Entertainment',
     role: 'Engineer',
   },
-  { artist: 'Georgia', album: 'TBA', label: 'Atlantic', role: 'Engineer' },
+  { artist: 'Georgia', album: 'Slow Down Easy', label: 'Atlantic', role: 'Engineer' },
   {
     artist: 'Pop Levi',
     album: 'The Return to Form Black Magick Party B-Sides',
     label: 'Ninja Tune',
     role: 'Engineer / Mixer',
   },
-  { artist: 'Lavender Diamond', album: 'Imagine Our Love', label: 'Matador', role: 'Engineer' },
+  {
+    artist: 'Lavender Diamond',
+    album: 'Imagine Our Love',
+    label: 'Matador',
+    role: 'Engineer',
+    spotify: 'https://open.spotify.com/album/1voioM8PNb0D8BJFUHLN7b',
+  },
   {
     artist: 'Reeve Oliver',
     album: 'Touchtone Inferno',
     label: 'Capitol',
     role: 'Pro Tools / Engineer',
+    spotify: 'https://open.spotify.com/album/7B5vJuWtSFPIao1em0bHz2',
   },
   {
     artist: 'Whole Wheat Bread',
     album: 'Punk Life',
     label: 'Fighting Records',
     role: 'Producer / Engineer / Mixer',
+    spotify: 'https://open.spotify.com/album/0CWglNXNUsA0IanRuYOE4J',
   },
   {
     artist: 'The Rosewood Thieves',
@@ -74,18 +103,26 @@ export const DISCOGRAPHY: DiscographyEntry[] = [
     label: 'V2/Artemis',
     role: 'Engineer',
   },
-  { artist: 'Moses Mayfield', album: 'The Inside', label: 'Epic', role: 'Pro Tools / Engineer' },
+  {
+    artist: 'Moses Mayfield',
+    album: 'The Inside',
+    label: 'Epic',
+    role: 'Pro Tools / Engineer',
+    spotify: 'https://open.spotify.com/album/04k65kVtcMt0zEWCyOkuYS',
+  },
   {
     artist: 'Yellowcard',
     album: 'Lights + Sounds',
     label: 'Capitol',
     role: 'Pro Tools / Engineer',
+    spotify: 'https://open.spotify.com/album/5EaEOUs3O1MZRicDMUIuqo',
   },
   {
     artist: 'Fall Out Boy',
     album: 'From Under a Cork Tree',
     label: 'Island',
     role: 'Pro Tools / Engineer',
+    spotify: 'https://open.spotify.com/album/5nkUSlIhtoJZMOUlB0sNCp',
   },
   { artist: 'Curious', album: 'EP 2005', label: 'Indie', role: 'Producer / Engineer / Mixer' },
   { artist: 'Kazi', album: 'EP 2005', label: 'Indie', role: 'Co-Producer / Mixer' },
@@ -94,12 +131,14 @@ export const DISCOGRAPHY: DiscographyEntry[] = [
     album: 'Mapping an Invisible World',
     label: 'Fueled By Ramen',
     role: 'Pro Tools / Engineer',
+    spotify: 'https://open.spotify.com/album/5nOMy0uE8bWKvGrFeidlQq',
   },
   {
     artist: 'The Exies',
     album: 'Head for the Door',
     label: 'Virgin',
     role: 'Engineer / Pro Tools',
+    spotify: 'https://open.spotify.com/album/6YIeqIHqnBkjlPjYFqDpdY',
   },
   {
     artist: 'Biirdie',
@@ -107,19 +146,33 @@ export const DISCOGRAPHY: DiscographyEntry[] = [
     label: 'Pop-Up Records',
     role: 'Producer / Engineer / Mixer',
   },
-  { artist: 'New Found Glory', album: 'Catalyst', label: 'Geffen', role: 'Pro Tools Engineer' },
-  { artist: 'Yellowcard', album: 'Ocean Avenue', label: 'Capitol', role: 'Engineer / Pro Tools' },
+  {
+    artist: 'New Found Glory',
+    album: 'Catalyst',
+    label: 'Geffen',
+    role: 'Pro Tools Engineer',
+    spotify: 'https://open.spotify.com/album/07FMLDgJBRbgdWHHBmlTQy',
+  },
+  {
+    artist: 'Yellowcard',
+    album: 'Ocean Avenue',
+    label: 'Capitol',
+    role: 'Engineer / Pro Tools',
+    spotify: 'https://open.spotify.com/album/24IBCzEJlHBI0ioxlSuSPA',
+  },
   {
     artist: 'The Fight',
     album: "Nothing New Since Rock 'N Roll",
     label: 'Repossession',
     role: 'Engineer / Digital Editing',
+    spotify: 'https://open.spotify.com/album/7cxRdFivEkWU7yOqbhuPeR',
   },
   {
     artist: 'The Pharcyde',
     album: 'Humbolt Beginnings',
     label: 'V2/Chapter 1',
     role: 'Pro Tools Engineer',
+    spotify: 'https://open.spotify.com/album/6n6jJ2j18Ln64N0gXG3HWO',
   },
   { artist: 'The Exies', album: 'Demos 2004', label: 'Virgin', role: 'Engineer / Mixer' },
   {
@@ -127,12 +180,14 @@ export const DISCOGRAPHY: DiscographyEntry[] = [
     album: 'Die Trying',
     label: 'Island/Def Jam',
     role: 'Pro Tools Engineer',
+    spotify: 'https://open.spotify.com/album/1314D6boeA6ZhhQqbZ8TF9',
   },
   {
     artist: 'Home Town Hero',
     album: 'Home Town Hero',
     label: 'Maverick',
     role: 'Pro Tools Engineer',
+    spotify: 'https://open.spotify.com/album/418lSrVm2GMDiE2BpVY36O',
   },
   {
     artist: 'Dick Carter Speedway',
@@ -155,6 +210,7 @@ export const DISCOGRAPHY: DiscographyEntry[] = [
     album: 'Mala/Japa',
     label: 'Spirit Voyage Records',
     role: 'Engineer / Producer',
+    spotify: 'https://open.spotify.com/album/6MNUA20qXv3xxcrPVjG4pE',
   },
   { artist: 'Winter', album: 'Assault', label: 'Nuclear Blast', role: 'Producer / Programmer' },
 ]
