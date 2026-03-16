@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
+import { TITLES } from '../data/titles'
 import styles from './CyclingTitle.module.css'
-
-const TITLES = ['producer', 'engineer', 'mixer', 'programmer']
 
 export default function CyclingTitle() {
   const [index, setIndex] = useState(0)
