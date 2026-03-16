@@ -26,7 +26,7 @@ export const COWRITES: Cowrite[] = [
   },
   {
     artist: 'Ocean Is Theory',
-    song: '"Halo"',
+    song: '"My Halo"',
     label: 'Razor & Tie',
     spotify: 'https://open.spotify.com/album/3pnMXMaRD5pTqMqaVy2Ci5',
   },
