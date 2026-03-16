@@ -31,7 +31,7 @@ export const CREDITS: Credit[] = [
   {
     artist: 'Hollywood Ending',
     project: '"You Got Me"',
-    label: '—',
+    label: 'Hollywood Records',
     role: 'P · E · M',
     spotify: 'https://open.spotify.com/track/0hCDOkU1jM0VFUPq1F0Sod',
   },
@@ -49,7 +49,7 @@ export const CREDITS: Credit[] = [
     role: 'E',
     spotify: 'https://open.spotify.com/album/2p2JBegkoa43Vb9RWurUcf',
   },
-  { artist: 'The Invincibles', project: 'Murs & Whole Wheat Bread', label: '—', role: 'P · M' },
+  { artist: 'The Invincibles', project: 'Murs & Whole Wheat Bread', label: 'Independent', role: 'P · M' },
   {
     artist: 'Pop Levi',
     project: 'Motorcycle 666',
@@ -60,7 +60,7 @@ export const CREDITS: Credit[] = [
   {
     artist: 'Hey Monday',
     project: '"I Don\'t Want To Dance"',
-    label: '—',
+    label: 'Sony',
     role: 'E',
     spotify: 'https://open.spotify.com/track/3lgN3kbDO9FL4kB1lrd2MS',
   },
@@ -95,7 +95,7 @@ export const CREDITS: Credit[] = [
   {
     artist: 'Anine Stang',
     project: '"Trying You On" "Zip It Up" "Happy"',
-    label: '—',
+    label: 'Electric Stardust',
     role: 'P · E · M',
     spotify: 'https://open.spotify.com/track/5m6vtIYqarZ4DXP7Diz7gm',
   },
@@ -134,11 +134,11 @@ export const CREDITS: Credit[] = [
     role: 'P · E · M',
     spotify: 'https://open.spotify.com/album/6pcIo7jAfeUwxF1dwuW49y',
   },
-  { artist: 'Anina', project: 'Not My Boyfriend', label: '—', role: 'P · E · M' },
+  { artist: 'Anina', project: 'Not My Boyfriend', label: 'Electric Stardust', role: 'P · E · M' },
   {
     artist: 'Ian Erix',
     project: 'Song For Mutts',
-    label: '—',
+    label: 'Independent',
     role: 'W · P · E · M',
   },
   {
@@ -170,7 +170,7 @@ export const CREDITS: Credit[] = [
     label: 'Fighting Records',
     role: 'P · E · M',
   },
-  { artist: 'Heartstop', project: 'Moments', label: '—', role: 'P · E · M' },
+  { artist: 'Heartstop', project: 'Moments', label: 'Independent', role: 'P · E · M' },
   {
     artist: "The King's Royal",
     project: 'Beginning',
@@ -240,7 +240,7 @@ export const CREDITS: Credit[] = [
     role: 'E',
     spotify: 'https://open.spotify.com/album/7B5vJuWtSFPIao1em0bHz2',
   },
-  { artist: 'Kazi', project: 'EP', label: '—', role: 'P · M' },
+  { artist: 'Kazi', project: 'EP', label: 'Independent', role: 'P · M' },
   {
     artist: 'Days Away',
     project: 'Mapping An Invisible World',
@@ -315,14 +315,14 @@ export const CREDITS: Credit[] = [
   {
     artist: 'Dick Carter Speedway',
     project: 'A Pill That Knocks Me Out',
-    label: 'Indie',
+    label: 'Independent',
     role: 'P · E · M',
   },
-  { artist: 'Elisabeth Ames', project: 'Elisabeth Ames', label: 'Indie', role: 'E · M' },
-  { artist: 'Cucoloris', project: 'Unfurl', label: 'Indie', role: 'P · E · M' },
+  { artist: 'Elisabeth Ames', project: 'Elisabeth Ames', label: 'Independent', role: 'E · M' },
+  { artist: 'Cucoloris', project: 'Unfurl', label: 'Independent', role: 'P · E · M' },
   { artist: 'Brian Stace', project: 'Country Music', label: 'TexDog Records', role: 'E' },
   { artist: 'Biirdie', project: 'Glendale EP', label: 'Pop Up', role: 'P · E · M' },
-  { artist: 'Billion Stars', project: 'Pleads the Fifth', label: 'Indie', role: 'E · M' },
+  { artist: 'Billion Stars', project: 'Pleads the Fifth', label: 'Independent', role: 'E · M' },
   {
     artist: 'Dave Stringer',
     project: 'Mala/Japa',
