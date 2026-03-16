@@ -1,8 +1,7 @@
 import { render, screen, act } from '@testing-library/react'
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import CyclingTitle from '../components/CyclingTitle'
-
-const TITLES = ['producer', 'engineer', 'mixer', 'programmer']
+import { TITLES } from '../data/titles'
 
 describe('CyclingTitle', () => {
   beforeEach(() => vi.useFakeTimers())
