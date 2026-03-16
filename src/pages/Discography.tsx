@@ -20,7 +20,20 @@ export default function Discography() {
             {DISCOGRAPHY.map((row) => (
               <tr key={row.artist + row.album} className={styles.row}>
                 <td className={`${styles.td} ${styles.artist}`}>{row.artist}</td>
-                <td className={styles.td}>{row.album}</td>
+                <td className={styles.td}>
+                  {row.spotify ? (
+                    <a
+                      href={row.spotify}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.spotifyLink}
+                    >
+                      {row.album}
+                    </a>
+                  ) : (
+                    row.album
+                  )}
+                </td>
                 <td className={`${styles.td} ${styles.label}`}>{row.label}</td>
                 <td className={`${styles.td} ${styles.role}`}>{row.role}</td>
               </tr>

@@ -20,7 +20,20 @@ export default function Credits() {
             {COWRITES.map((row) => (
               <tr key={row.artist + row.song} className={styles.row}>
                 <td className={`${styles.td} ${styles.artist}`}>{row.artist}</td>
-                <td className={styles.td}>{row.song}</td>
+                <td className={styles.td}>
+                  {row.spotify ? (
+                    <a
+                      href={row.spotify}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.spotifyLink}
+                    >
+                      {row.song}
+                    </a>
+                  ) : (
+                    row.song
+                  )}
+                </td>
                 <td className={`${styles.td} ${styles.label}`}>{row.label}</td>
               </tr>
             ))}
@@ -43,7 +56,20 @@ export default function Credits() {
             {CREDITS.map((row) => (
               <tr key={row.artist + row.project} className={styles.row}>
                 <td className={`${styles.td} ${styles.artist}`}>{row.artist}</td>
-                <td className={styles.td}>{row.project}</td>
+                <td className={styles.td}>
+                  {row.spotify ? (
+                    <a
+                      href={row.spotify}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.spotifyLink}
+                    >
+                      {row.project}
+                    </a>
+                  ) : (
+                    row.project
+                  )}
+                </td>
                 <td className={`${styles.td} ${styles.label}`}>{row.label}</td>
                 <td className={`${styles.td} ${styles.role}`}>{row.role}</td>
               </tr>
