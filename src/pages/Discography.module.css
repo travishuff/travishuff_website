@@ -53,6 +53,17 @@
   opacity: 0.8;
 }
 
+.spotifyLink {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.spotifyLink:hover {
+  color: var(--amber);
+  text-decoration: underline;
+}
+
 @media (max-width: 600px) {
   .label,
   .role {
