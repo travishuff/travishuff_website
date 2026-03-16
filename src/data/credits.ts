@@ -245,7 +245,13 @@ export const CREDITS: Credit[] = [
     role: 'E · M',
     spotify: 'https://open.spotify.com/track/5dGWOVgzDPNLAdGL7Zd3rg',
   },
-  { artist: 'Biirdie', project: 'Morning Kills The Dark', label: 'Pop Up', role: 'P · E · M' },
+  {
+    artist: 'Biirdie',
+    project: 'Morning Kills The Dark',
+    label: 'Pop Up',
+    role: 'P · E · M',
+    spotify: 'https://open.spotify.com/album/5JHw4viXCS83O49NZntd2F',
+  },
   {
     artist: 'The Fight',
     project: 'Nothing New Since Rock n Roll',

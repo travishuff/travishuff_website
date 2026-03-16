@@ -145,6 +145,7 @@ export const DISCOGRAPHY: DiscographyEntry[] = [
     album: 'Morning Kills the Dark',
     label: 'Pop-Up Records',
     role: 'Producer / Engineer / Mixer',
+    spotify: 'https://open.spotify.com/album/5JHw4viXCS83O49NZntd2F',
   },
   {
     artist: 'New Found Glory',
@@ -197,7 +198,7 @@ export const DISCOGRAPHY: DiscographyEntry[] = [
   },
   { artist: 'Elisabeth Ames', album: 'Elisabeth Ames', label: 'Indie', role: 'Engineer / Mixer' },
   { artist: 'Cucoloris', album: 'Unfurl', label: 'Indie', role: 'Producer / Engineer / Mixer' },
-  { artist: 'Brian Stace', album: 'Country Music...', label: 'TexDog Records', role: 'Engineer' },
+  { artist: 'Brian Stace', album: 'Country Music', label: 'TexDog Records', role: 'Engineer' },
   {
     artist: 'Biirdie',
     album: 'Glendale EP',

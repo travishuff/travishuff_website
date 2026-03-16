@@ -46,9 +46,9 @@ describe('Credits data', () => {
     })
   })
 
-  it('has Spotify links on 35 of 46 entries', () => {
+  it('has Spotify links on 36 of 46 entries', () => {
     const withSpotify = CREDITS.filter((e) => e.spotify)
-    expect(withSpotify).toHaveLength(35)
+    expect(withSpotify).toHaveLength(36)
   })
 
   it('all Spotify URLs are valid open.spotify.com links', () => {
@@ -79,9 +79,9 @@ describe('Discography data', () => {
     })
   })
 
-  it('has Spotify links on 20 of 41 entries', () => {
+  it('has Spotify links on 21 of 41 entries', () => {
     const withSpotify = DISCOGRAPHY.filter((e) => e.spotify)
-    expect(withSpotify).toHaveLength(20)
+    expect(withSpotify).toHaveLength(21)
   })
 
   it('all Spotify URLs are valid open.spotify.com links', () => {
