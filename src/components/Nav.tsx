@@ -34,9 +34,6 @@ export default function Nav() {
         <NavLink to="/credits" className={navClass}>
           credits
         </NavLink>
-        <NavLink to="/discography" className={navClass}>
-          discography
-        </NavLink>
         <NavLink to="/gear" className={navClass}>
           gear
         </NavLink>

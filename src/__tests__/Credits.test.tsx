@@ -29,6 +29,13 @@ describe('Credits page', () => {
     expect(screen.getByText('From Under The Cork Tree')).toBeInTheDocument()
   })
 
+  it('renders former discography entries in production credits', () => {
+    renderWithRouter(<Credits />)
+    expect(screen.getByText('Ocean Ave')).toBeInTheDocument()
+    expect(screen.getByText('Dick Carter Speedway')).toBeInTheDocument()
+    expect(screen.getByText('Winter')).toBeInTheDocument()
+  })
+
   it('renders the role legend', () => {
     renderWithRouter(<Credits />)
     expect(screen.getByText(/P = Producer/i)).toBeInTheDocument()
