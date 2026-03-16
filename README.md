@@ -8,7 +8,6 @@ Built with React + TypeScript + Vite. Amber-on-black terminal aesthetic with IBM
 
 - **`/`** — Homepage: cycling job titles, notable credits with Spotify links, center photo with CRT scanlines + glitch animation, scrolling ticker
 - **`/credits`** — Released co-writes and full production credits with Spotify links
-- **`/discography`** — Full discography table with Spotify links
 - **`/gear`** — Recording gear and music gear lists
 - **`*`** — Unknown routes redirect to homepage
 
@@ -19,8 +18,7 @@ Content data lives in `src/data/` for easy updates without touching component co
 | File | Contents |
 |---|---|
 | `cowrites.ts` | 9 co-write entries with optional Spotify links |
-| `credits.ts` | 46 production credits with optional Spotify links |
-| `discography.ts` | 41 discography entries with optional Spotify links |
+| `credits.ts` | 61 production credits with optional Spotify links |
 | `gear.ts` | 30 recording + 29 music gear items |
 | `ticker.ts` | 26 ticker artist names |
 | `titles.ts` | 4 cycling titles |
@@ -65,17 +63,16 @@ npm test          # watch mode
 npm run test:run  # single run
 ```
 
-57 tests across 9 files cover components, pages, and data integrity:
+50 tests across 8 files cover components, pages, and data integrity:
 
 - `CyclingTitle` — title cycling, interval cleanup
 - `Ticker` — content rendering, aria-hidden duplicate
 - `CreditsBlock` — all 6 credits, Spotify links, new-tab attributes
 - `Nav` — links, routes, email, roles tagline
 - `PageLayout` — children, background click navigates home, content click does not
-- `Credits` — both table sections, known entries, role legend
-- `Discography` — table headers, known entries
+- `Credits` — co-writes, production credits (including former discography entries), role legend
 - `Gear` — both gear sections, known items, removed items absent
-- `Data` — entry counts, required fields, Spotify link counts and URL validation for all 7 data files
+- `Data` — entry counts, required fields, Spotify link counts, URL validation, no duplicates
 
 ### End-to-End Tests
 
@@ -85,9 +82,9 @@ E2E tests use [Playwright](https://playwright.dev/) with Chromium (auto-starts t
 npm run test:e2e  # run all e2e tests
 ```
 
-31 tests across 6 specs:
+29 tests across 6 specs:
 
-- **Routes** — all 4 pages render correctly, unknown routes redirect to homepage, navigation between pages works
+- **Routes** — all 3 pages render correctly, unknown routes redirect to homepage, `/discography` redirects to homepage, navigation between pages works
 - **Spotify links** — 6 links with correct URLs, `target="_blank"`, `rel="noopener noreferrer"`
 - **Click-away** — background click navigates home on all sub-pages, content click does not
 - **Glitch animation** — photo, scanlines, glitch slices present; CSS animations and clip-path applied; 7s duration; sepia filter

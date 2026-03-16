@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Home from './pages/Home'
 import Credits from './pages/Credits'
-import Discography from './pages/Discography'
 import Gear from './pages/Gear'
 
 export default function App() {
@@ -10,7 +9,6 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/credits" element={<Credits />} />
-        <Route path="/discography" element={<Discography />} />
         <Route path="/gear" element={<Gear />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

@@ -3,7 +3,6 @@ import { test, expect } from '@playwright/test'
 test.describe('Click-away navigation on sub-pages', () => {
   const subPages = [
     { path: '/credits', heading: 'Released Co-Writes' },
-    { path: '/discography', heading: 'Discography' },
     { path: '/gear', heading: 'Recording Gear' },
   ]
 

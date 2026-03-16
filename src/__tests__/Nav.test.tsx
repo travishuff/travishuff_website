@@ -16,7 +16,6 @@ describe('Nav', () => {
   it('renders all nav links', () => {
     renderWithRouter(<Nav />)
     expect(screen.getByRole('link', { name: /credits/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /discography/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /gear/i })).toBeInTheDocument()
   })
 
@@ -34,10 +33,6 @@ describe('Nav', () => {
   it('nav links point to correct routes', () => {
     renderWithRouter(<Nav />)
     expect(screen.getByRole('link', { name: /credits/i })).toHaveAttribute('href', '/credits')
-    expect(screen.getByRole('link', { name: /discography/i })).toHaveAttribute(
-      'href',
-      '/discography',
-    )
     expect(screen.getByRole('link', { name: /gear/i })).toHaveAttribute('href', '/gear')
   })
 })

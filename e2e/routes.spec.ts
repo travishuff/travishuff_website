@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-test.describe('All 4 routes render correctly', () => {
+test.describe('All 3 routes render correctly', () => {
   test('homepage loads with key elements', async ({ page }) => {
     await page.goto('/')
     await expect(page).toHaveTitle('Travis Huff')
@@ -12,20 +12,14 @@ test.describe('All 4 routes render correctly', () => {
     ).toBeVisible()
   })
 
-  test('credits page loads with both tables', async ({ page }) => {
+  test('credits page loads with all sections', async ({ page }) => {
     await page.goto('/credits')
     await expect(page.getByRole('heading', { name: 'Released Co-Writes' })).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Production Credits' })).toBeVisible()
     await expect(page.getByRole('cell', { name: 'Fall Out Boy' })).toBeVisible()
     await expect(page.getByRole('cell', { name: 'It Boys!' })).toBeVisible()
-  })
-
-  test('discography page loads with table', async ({ page }) => {
-    await page.goto('/discography')
-    await expect(page.getByRole('heading', { name: 'Discography' })).toBeVisible()
-    await expect(page.getByText('Artist')).toBeVisible()
-    await expect(page.getByText('Album / Release')).toBeVisible()
-    await expect(page.getByText('Ocean Avenue')).toBeVisible()
+    // Former discography entries now in production credits
+    await expect(page.getByText('Ocean Ave')).toBeVisible()
   })
 
   test('gear page loads with both sections', async ({ page }) => {
@@ -42,6 +36,12 @@ test.describe('All 4 routes render correctly', () => {
     await expect(page.locator('img[alt="Travis Huff"]')).toBeVisible()
   })
 
+  test('/discography redirects to homepage', async ({ page }) => {
+    await page.goto('/discography')
+    await expect(page).toHaveURL('/')
+    await expect(page.locator('img[alt="Travis Huff"]')).toBeVisible()
+  })
+
   test('deeply nested unknown route redirects to homepage', async ({ page }) => {
     await page.goto('/some/random/path')
     await expect(page).toHaveURL('/')
@@ -53,9 +53,6 @@ test.describe('All 4 routes render correctly', () => {
     await page.getByRole('link', { name: /credits/i }).click()
     await expect(page).toHaveURL('/credits')
     await expect(page.getByRole('heading', { name: 'Released Co-Writes' })).toBeVisible()
-
-    await page.getByRole('link', { name: /discography/i }).click()
-    await expect(page).toHaveURL('/discography')
 
     await page.getByRole('link', { name: /gear/i }).click()
     await expect(page).toHaveURL('/gear')
