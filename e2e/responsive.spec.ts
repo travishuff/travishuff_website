@@ -101,4 +101,19 @@ test.describe('Responsive layout on narrow viewports', () => {
     )
     expect(isScrollable).toBe(true)
   })
+
+  test('credits tables keep label and role columns available on mobile', async ({ page }) => {
+    await page.goto('/credits')
+
+    await expect(page.getByRole('columnheader', { name: 'Label' }).first()).toBeVisible()
+    await expect(page.getByRole('columnheader', { name: 'Role' })).toBeVisible()
+
+    const wrappers = page.locator('[class*=tableWrapper]')
+    await expect(wrappers.first()).toBeVisible()
+
+    const hasHorizontalOverflow = await wrappers.nth(1).evaluate(
+      (el) => el.scrollWidth > el.clientWidth,
+    )
+    expect(hasHorizontalOverflow).toBe(true)
+  })
 })
