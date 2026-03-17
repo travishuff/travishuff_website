@@ -35,6 +35,8 @@ npm run dev       # http://127.0.0.1:5173
 npm run build     # outputs to dist/
 ```
 
+Project scripts automatically prefer the repo's `.nvmrc` version when `nvm` is available.
+
 ## Linting & Formatting
 
 ```bash

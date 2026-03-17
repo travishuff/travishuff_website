@@ -25,6 +25,18 @@
   border-collapse: collapse;
 }
 
+.tableWrapper {
+  width: 100%;
+}
+
+.cowritesTable {
+  min-width: 620px;
+}
+
+.creditsTable {
+  min-width: 780px;
+}
+
 .th {
   font-size: 9px;
   font-weight: 400;
@@ -95,9 +107,37 @@
 }
 
 @media (max-width: 600px) {
-  .label,
-  .roleCol,
-  .role {
-    display: none;
+  .tableWrapper {
+    overflow-x: auto;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--amber-ghost) var(--black);
+  }
+
+  .tableWrapper::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .tableWrapper::-webkit-scrollbar-track {
+    background: var(--black);
+  }
+
+  .tableWrapper::-webkit-scrollbar-thumb {
+    background: var(--amber-ghost);
+    border-radius: 0;
+  }
+
+  .tableWrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--amber-dim);
+  }
+
+  .th,
+  .td {
+    padding-right: 16px;
+  }
+
+  .creditsTable {
+    min-width: 700px;
   }
 }

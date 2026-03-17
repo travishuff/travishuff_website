@@ -94,11 +94,26 @@ test.describe('Responsive layout on narrow viewports', () => {
   test('sub-page content scrolls on mobile', async ({ page }) => {
     await page.goto('/credits')
 
-    // The content area should be scrollable when content overflows
-    const main = page.locator('main')
-    const isScrollable = await main.evaluate(
+    // The inner content panel should be scrollable when content overflows
+    const content = page.getByTestId('page-layout-content')
+    const isScrollable = await content.evaluate(
       (el) => el.scrollHeight > el.clientHeight,
     )
     expect(isScrollable).toBe(true)
+  })
+
+  test('credits tables keep label and role columns available on mobile', async ({ page }) => {
+    await page.goto('/credits')
+
+    await expect(page.getByRole('columnheader', { name: 'Label' }).first()).toBeVisible()
+    await expect(page.getByRole('columnheader', { name: 'Role' })).toBeVisible()
+
+    const wrappers = page.locator('[class*=tableWrapper]')
+    await expect(wrappers.first()).toBeVisible()
+
+    const hasHorizontalOverflow = await wrappers.nth(1).evaluate(
+      (el) => el.scrollWidth > el.clientWidth,
+    )
+    expect(hasHorizontalOverflow).toBe(true)
   })
 })
