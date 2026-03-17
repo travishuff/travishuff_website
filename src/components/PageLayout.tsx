@@ -75,7 +75,11 @@ export default function PageLayout({ children }: PageLayoutProps) {
     <SiteShell>
       <ClickAwayHome contentClassName={styles.shell}>
         <div className={styles.panel}>
-          <div ref={contentRef} className={styles.content}>
+          <div
+            ref={contentRef}
+            className={styles.content}
+            data-testid="page-layout-content"
+          >
             {children}
           </div>
           {scrollbar.isScrollable ? (

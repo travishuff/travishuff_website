@@ -7,17 +7,18 @@
     "node": "25.8.1"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc --noEmit && vite build",
-    "typecheck": "tsc --noEmit",
-    "preview": "vite preview",
-    "test": "vitest",
-    "test:run": "vitest run",
+    "dev": "./scripts/run-with-repo-node.sh vite",
+    "build": "./scripts/run-with-repo-node.sh npm run build:inner",
+    "build:inner": "tsc --noEmit && vite build",
+    "typecheck": "./scripts/run-with-repo-node.sh tsc --noEmit",
+    "preview": "./scripts/run-with-repo-node.sh vite preview",
+    "test": "./scripts/run-with-repo-node.sh vitest",
+    "test:run": "./scripts/run-with-repo-node.sh vitest run",
     "lint": "eslint .",
     "check": "npm run lint && npm run typecheck && npm run test:run",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\"",
-    "test:e2e": "playwright test"
+    "test:e2e": "./scripts/run-with-repo-node.sh playwright test"
   },
   "dependencies": {
     "react": "^19.2.4",
