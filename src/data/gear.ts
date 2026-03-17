@@ -52,7 +52,7 @@ export const MUSIC_GEAR: string[] = [
   'Fender Pro Jr. Tube Amp',
   'Danelectro Honeytone Amp',
   'Roland Space Echo RE-201',
-  'Various Effects Pedals (SansAmp Bass Driver, SansAmp Classic, Z-Vex Fuzz Factory, Line 6 Delay & Modulation Modelers, Fulltone Full-Drive 2, Tube Screamer vintage, MXR DynaComp vintage, Big Muff, Cry-Baby Wah, Boss DS-1 Distortion)',
+  'Various Effects Pedals (SansAmp Bass Driver, SansAmp Classic, Z-Vex Fuzz Factory, Fulltone Full-Drive 2, Tube Screamer vintage, MXR DynaComp vintage, Big Muff, Cry-Baby Wah, Boss DS-1)',
   'Wurlitzer 200A',
   'Moog Subsequent 37',
   'Teenage Engineering OP-XY',
