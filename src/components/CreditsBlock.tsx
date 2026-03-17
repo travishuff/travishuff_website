@@ -1,13 +1,12 @@
-import { NOTABLE_CREDITS } from '../data/notableCredits'
+import { NOTABLE_CREDITS } from '../data/credits'
 import styles from './CreditsBlock.module.css'
 
 export default function CreditsBlock() {
   return (
     <div className={styles.block}>
-      <p className={styles.label}>P=producer E=engineer M=mixer</p>
       <ul className={styles.list}>
-        {NOTABLE_CREDITS.map(({ artist, project, role, spotify }) => (
-          <li key={artist} className={styles.item}>
+        {NOTABLE_CREDITS.map(({ id, artist, project, role, spotify }) => (
+          <li key={id} className={styles.item}>
             <a href={spotify} target="_blank" rel="noopener noreferrer" className={styles.link}>
               <span className={styles.artist}>{artist}</span>
               <span className={styles.project}>{project}</span>
@@ -16,6 +15,7 @@ export default function CreditsBlock() {
           </li>
         ))}
       </ul>
+      <p className={styles.label}>P=producer E=engineer M=mixer</p>
     </div>
   )
 }

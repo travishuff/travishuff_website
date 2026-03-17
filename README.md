@@ -4,25 +4,16 @@ Personal website for Travis Huff — producer, engineer, mixer, programmer.
 
 Built with React + TypeScript + Vite. Amber-on-black terminal aesthetic with IBM Plex Mono.
 
+## Runtime
+
+- Node 25.8.1 (`.nvmrc` included)
+
 ## Pages
 
 - **`/`** — Homepage: cycling job titles, notable credits with Spotify links, center photo with CRT scanlines + glitch animation, scrolling ticker
 - **`/credits`** — Released co-writes and full production credits with Spotify links
 - **`/gear`** — Recording gear and music gear lists
 - **`*`** — Unknown routes redirect to homepage
-
-## Data
-
-Content data lives in `src/data/` for easy updates without touching component code:
-
-| File | Contents |
-|---|---|
-| `cowrites.ts` | 9 co-write entries with optional Spotify links |
-| `credits.ts` | 61 production credits with optional Spotify links |
-| `gear.ts` | 30 recording + 29 music gear items |
-| `ticker.ts` | 26 ticker artist names |
-| `titles.ts` | 4 cycling titles |
-| `notableCredits.ts` | 6 notable credits with Spotify links |
 
 ## Stack
 
@@ -38,8 +29,9 @@ Content data lives in `src/data/` for easy updates without touching component co
 ## Development
 
 ```bash
+nvm use
 npm install
-npm run dev       # http://localhost:5173
+npm run dev       # http://127.0.0.1:5173
 npm run build     # outputs to dist/
 ```
 
@@ -50,6 +42,7 @@ npm run lint          # ESLint
 npm run format        # Prettier (auto-fix)
 npm run format:check  # Prettier (check only)
 npm run typecheck     # TypeScript type checking
+npm run check         # lint + typecheck + unit tests
 ```
 
 ## Testing

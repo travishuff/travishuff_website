@@ -17,6 +17,10 @@ const spaFallback: Plugin = {
 export default defineConfig({
   plugins: [react(), spaFallback],
   publicDir: 'public',
+  server: {
+    host: '127.0.0.1',
+    port: 5173,
+  },
   test: {
     globals: true,
     environment: 'jsdom',

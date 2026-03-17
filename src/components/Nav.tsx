@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { ROLE_TAGLINE } from '../data/titles'
 import styles from './Nav.module.css'
 
 function navClass({ isActive }: { isActive: boolean }) {
@@ -39,7 +40,7 @@ export default function Nav() {
         </NavLink>
       </div>
       <div className={styles.right}>
-        <span className={styles.roles}>producer · engineer · mixer · programmer</span>
+        <span className={styles.roles}>{ROLE_TAGLINE}</span>
       </div>
     </nav>
   )
