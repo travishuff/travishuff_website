@@ -13,7 +13,7 @@
   font-weight: 400;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--amber-dim);
+  color: var(--amber);
   border-bottom: 1px solid var(--amber-ghost);
   padding-bottom: 10px;
   margin: 0 0 20px 0;
