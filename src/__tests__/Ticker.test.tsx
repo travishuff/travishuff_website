@@ -1,14 +1,13 @@
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import Ticker from '../components/Ticker'
+import { TICKER_CREDITS } from '../data/credits'
 
 describe('Ticker', () => {
-  it('renders known artist names in the ticker', () => {
+  it('renders ticker artists from the shared credits data', () => {
     render(<Ticker />)
-    // The visible span (not aria-hidden) contains all credits
-    expect(screen.getAllByText(/One Direction/)[0]).toBeInTheDocument()
-    expect(screen.getAllByText(/Fall Out Boy/)[0]).toBeInTheDocument()
-    expect(screen.getAllByText(/Yellowcard/)[0]).toBeInTheDocument()
+    const [visibleTrack] = screen.getAllByText(new RegExp(TICKER_CREDITS[0]))
+    expect(visibleTrack.textContent?.replace(/\s+/g, ' ').trim()).toBe(TICKER_CREDITS.join(' · '))
   })
 
   it('renders a duplicate track span for seamless looping', () => {

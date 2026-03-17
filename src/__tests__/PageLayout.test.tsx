@@ -28,12 +28,12 @@ describe('PageLayout', () => {
 
   it('clicking the page background navigates home', () => {
     mockNavigate.mockClear()
-    const { container } = renderWithRouter(
+    renderWithRouter(
       <PageLayout>
         <p>Content</p>
       </PageLayout>,
     )
-    fireEvent.click(container.firstChild!)
+    fireEvent.click(screen.getByTestId('click-away-backdrop'))
     expect(mockNavigate).toHaveBeenCalledWith('/')
   })
 

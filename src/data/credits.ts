@@ -1,4 +1,5 @@
 export interface Credit {
+  id: string
   artist: string
   project: string
   label: string
@@ -6,7 +7,35 @@ export interface Credit {
   spotify?: string
 }
 
-export const CREDITS: Credit[] = [
+export interface NotableCredit {
+  id: string
+  artist: string
+  project: string
+  role: string
+  spotify: string
+}
+
+interface CreditRecord {
+  artist: string
+  project: string
+  label: string
+  role: string
+  spotify?: string
+  featuredAsNotable?: boolean
+}
+
+function createCreditId({ artist, project }: Pick<CreditRecord, 'artist' | 'project'>) {
+  return `${artist}-${project}`
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+function hasSpotify(credit: CreditRecord): credit is CreditRecord & { spotify: string } {
+  return typeof credit.spotify === 'string' && credit.spotify.length > 0
+}
+
+const CREDIT_RECORDS: ReadonlyArray<CreditRecord> = [
   {
     artist: 'X-Factor',
     project: 'Various Artists',
@@ -20,6 +49,7 @@ export const CREDITS: Credit[] = [
     label: 'Syco',
     role: 'E',
     spotify: 'https://open.spotify.com/album/6cunQQ7YZisYOoiFu2ywIq',
+    featuredAsNotable: true,
   },
   {
     artist: 'Ariana Grande',
@@ -27,6 +57,7 @@ export const CREDITS: Credit[] = [
     label: 'Universal Republic',
     role: 'E',
     spotify: 'https://open.spotify.com/track/1Rp8zCRpkHyEDqaUczfMZA',
+    featuredAsNotable: true,
   },
   {
     artist: 'Hollywood Ending',
@@ -49,7 +80,12 @@ export const CREDITS: Credit[] = [
     role: 'E',
     spotify: 'https://open.spotify.com/album/2p2JBegkoa43Vb9RWurUcf',
   },
-  { artist: 'The Invincibles', project: 'Murs & Whole Wheat Bread', label: 'Independent', role: 'P · M' },
+  {
+    artist: 'The Invincibles',
+    project: 'Murs & Whole Wheat Bread',
+    label: 'Independent',
+    role: 'P · M',
+  },
   {
     artist: 'Pop Levi',
     project: 'Motorcycle 666',
@@ -59,7 +95,7 @@ export const CREDITS: Credit[] = [
   },
   {
     artist: 'Hey Monday',
-    project: '"I Don\'t Want To Dance"',
+    project: `"I Don't Want To Dance"`,
     label: 'Sony',
     role: 'E',
     spotify: 'https://open.spotify.com/track/3lgN3kbDO9FL4kB1lrd2MS',
@@ -84,6 +120,7 @@ export const CREDITS: Credit[] = [
     label: 'Hollywood',
     role: 'E',
     spotify: 'https://open.spotify.com/track/64ZtUUvYqh0aeCkQzILgUy',
+    featuredAsNotable: true,
   },
   {
     artist: 'David Archuleta',
@@ -114,11 +151,12 @@ export const CREDITS: Credit[] = [
     spotify: 'https://open.spotify.com/album/4m6Vgm1LrAtbxV28cy5ZGf',
   },
   {
-    artist: '3OH!3 Featuring Katy Perry',
+    artist: '3OH!3 feat. Katy Perry',
     project: '"Starstrukk"',
     label: 'Atlantic',
     role: 'E',
     spotify: 'https://open.spotify.com/track/1hBM2D1ULT3aeKuddSwPsK',
+    featuredAsNotable: true,
   },
   {
     artist: 'Emily Osment',
@@ -227,10 +265,11 @@ export const CREDITS: Credit[] = [
   },
   {
     artist: 'Fall Out Boy',
-    project: 'From Under The Cork Tree',
+    project: 'From Under the Cork Tree',
     label: 'Island/Def Jam',
     role: 'E',
     spotify: 'https://open.spotify.com/album/5nkUSlIhtoJZMOUlB0sNCp',
+    featuredAsNotable: true,
   },
   { artist: 'Curious', project: 'Curious', label: 'Curious Records', role: 'P · E · M' },
   {
@@ -257,10 +296,11 @@ export const CREDITS: Credit[] = [
   },
   {
     artist: 'Yellowcard',
-    project: 'Ocean Ave',
+    project: 'Ocean Avenue',
     label: 'Capitol',
     role: 'E',
     spotify: 'https://open.spotify.com/album/24IBCzEJlHBI0ioxlSuSPA',
+    featuredAsNotable: true,
   },
   {
     artist: 'The Exies',
@@ -332,3 +372,29 @@ export const CREDITS: Credit[] = [
   },
   { artist: 'Winter', project: 'Assault', label: 'Nuclear Blast', role: 'P' },
 ]
+
+export const CREDITS: ReadonlyArray<Credit> = CREDIT_RECORDS.map(
+  ({ artist, project, label, role, spotify }) => ({
+    id: createCreditId({ artist, project }),
+    artist,
+    project,
+    label,
+    role,
+    spotify,
+  }),
+)
+
+export const NOTABLE_CREDITS: ReadonlyArray<NotableCredit> = CREDIT_RECORDS.filter(
+  (credit): credit is CreditRecord & { featuredAsNotable: true; spotify: string } =>
+    credit.featuredAsNotable === true && hasSpotify(credit),
+).map(({ artist, project, role, spotify }) => ({
+  id: createCreditId({ artist, project }),
+  artist,
+  project,
+  role,
+  spotify,
+}))
+
+export const TICKER_CREDITS: ReadonlyArray<string> = Array.from(
+  new Set(CREDIT_RECORDS.filter(hasSpotify).map((credit) => credit.artist)),
+)

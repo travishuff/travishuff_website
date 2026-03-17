@@ -1,4 +1,4 @@
-import { TICKER_CREDITS } from '../data/ticker'
+import { TICKER_CREDITS } from '../data/credits'
 import styles from './Ticker.module.css'
 
 export default function Ticker() {

@@ -1,12 +1,4 @@
-.page {
-  display: flex;
-  flex-direction: column;
-  height: 100dvh;
-  overflow: hidden;
-}
-
 .main {
-  flex: 1;
   position: relative;
   overflow: hidden;
 }

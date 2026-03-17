@@ -2,6 +2,7 @@ import type { ReactElement } from 'react'
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import { MemoryRouter } from 'react-router-dom'
+import { ROLE_TAGLINE } from '../data/titles'
 import Nav from '../components/Nav'
 
 const renderWithRouter = (ui: ReactElement, { initialEntries = ['/'] } = {}) =>
@@ -27,7 +28,7 @@ describe('Nav', () => {
 
   it('renders the roles tagline', () => {
     renderWithRouter(<Nav />)
-    expect(screen.getByText(/producer.*engineer.*mixer.*programmer/i)).toBeInTheDocument()
+    expect(screen.getByText(ROLE_TAGLINE)).toBeInTheDocument()
   })
 
   it('nav links point to correct routes', () => {

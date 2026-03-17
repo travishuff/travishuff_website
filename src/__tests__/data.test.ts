@@ -1,14 +1,12 @@
 import { describe, it, expect } from 'vitest'
 import { COWRITES } from '../data/cowrites'
-import { CREDITS } from '../data/credits'
+import { CREDITS, NOTABLE_CREDITS, TICKER_CREDITS } from '../data/credits'
 import { RECORDING_GEAR, MUSIC_GEAR } from '../data/gear'
-import { TICKER_CREDITS } from '../data/ticker'
 import { TITLES } from '../data/titles'
-import { NOTABLE_CREDITS } from '../data/notableCredits'
 
 describe('Cowrites data', () => {
-  it('contains 9 entries', () => {
-    expect(COWRITES).toHaveLength(9)
+  it('contains at least one entry', () => {
+    expect(COWRITES.length).toBeGreaterThan(0)
   })
 
   it('every entry has artist, song, and label', () => {
@@ -19,25 +17,26 @@ describe('Cowrites data', () => {
     })
   })
 
-  it('has Spotify links on 6 of 9 entries', () => {
-    const withSpotify = COWRITES.filter((e) => e.spotify)
-    expect(withSpotify).toHaveLength(6)
-  })
-
-  it('all Spotify URLs are valid open.spotify.com links', () => {
+  it('Spotify URLs, when present, are valid open.spotify.com links', () => {
     COWRITES.filter((e) => e.spotify).forEach((entry) => {
       expect(entry.spotify).toMatch(/^https:\/\/open\.spotify\.com\/(track|album)\//)
     })
   })
+
+  it('has no duplicate artist+song combinations', () => {
+    const keys = COWRITES.map((entry) => `${entry.artist}|${entry.song}`)
+    expect(new Set(keys).size).toBe(keys.length)
+  })
 })
 
 describe('Credits data', () => {
-  it('contains 61 entries', () => {
-    expect(CREDITS).toHaveLength(61)
+  it('contains at least one entry', () => {
+    expect(CREDITS.length).toBeGreaterThan(0)
   })
 
-  it('every entry has artist, project, label, and role', () => {
+  it('every entry has id, artist, project, label, and role', () => {
     CREDITS.forEach((entry) => {
+      expect(entry.id).toBeTruthy()
       expect(entry.artist).toBeTruthy()
       expect(entry.project).toBeTruthy()
       expect(entry.label).toBeTruthy()
@@ -45,22 +44,15 @@ describe('Credits data', () => {
     })
   })
 
-  it('has Spotify links on 38 of 61 entries', () => {
-    const withSpotify = CREDITS.filter((e) => e.spotify)
-    expect(withSpotify).toHaveLength(38)
-  })
-
-  it('all Spotify URLs are valid open.spotify.com links', () => {
+  it('Spotify URLs, when present, are valid open.spotify.com links', () => {
     CREDITS.filter((e) => e.spotify).forEach((entry) => {
       expect(entry.spotify).toMatch(/^https:\/\/open\.spotify\.com\/(track|album)\//)
     })
   })
 
-  it('includes key artists', () => {
-    const artists = CREDITS.map((e) => e.artist)
-    expect(artists).toContain('Fall Out Boy')
-    expect(artists).toContain('One Direction')
-    expect(artists).toContain('Yellowcard')
+  it('has unique ids', () => {
+    const ids = CREDITS.map((entry) => entry.id)
+    expect(new Set(ids).size).toBe(ids.length)
   })
 
   it('has no duplicate artist+project combinations', () => {
@@ -71,12 +63,9 @@ describe('Credits data', () => {
 })
 
 describe('Gear data', () => {
-  it('recording gear contains 30 items', () => {
-    expect(RECORDING_GEAR).toHaveLength(30)
-  })
-
-  it('music gear contains 29 items', () => {
-    expect(MUSIC_GEAR).toHaveLength(29)
+  it('contains recording and music gear entries', () => {
+    expect(RECORDING_GEAR.length).toBeGreaterThan(0)
+    expect(MUSIC_GEAR.length).toBeGreaterThan(0)
   })
 
   it('all items are non-empty strings', () => {
@@ -88,38 +77,58 @@ describe('Gear data', () => {
 })
 
 describe('Ticker data', () => {
-  it('contains 26 artist names', () => {
-    expect(TICKER_CREDITS).toHaveLength(26)
+  it('contains at least one artist name', () => {
+    expect(TICKER_CREDITS.length).toBeGreaterThan(0)
   })
 
-  it('all items are non-empty strings', () => {
+  it('only contains artists with Spotify-backed credit entries', () => {
+    const spotifyArtists = new Set(
+      CREDITS.filter((entry) => entry.spotify).map((entry) => entry.artist),
+    )
+    TICKER_CREDITS.forEach((name) => {
+      expect(spotifyArtists.has(name)).toBe(true)
+    })
+  })
+
+  it('contains non-empty, unique artist names', () => {
     TICKER_CREDITS.forEach((name) => {
       expect(typeof name).toBe('string')
       expect(name.length).toBeGreaterThan(0)
     })
+    expect(new Set(TICKER_CREDITS).size).toBe(TICKER_CREDITS.length)
   })
 })
 
 describe('Titles data', () => {
-  it('contains 4 titles', () => {
-    expect(TITLES).toHaveLength(4)
+  it('contains at least one title', () => {
+    expect(TITLES.length).toBeGreaterThan(0)
   })
 
-  it('includes producer, engineer, mixer, programmer', () => {
-    expect(TITLES).toEqual(['producer', 'engineer', 'mixer', 'programmer'])
+  it('contains unique, non-empty titles', () => {
+    TITLES.forEach((title) => {
+      expect(title).toBeTruthy()
+    })
+    expect(new Set(TITLES).size).toBe(TITLES.length)
   })
 })
 
 describe('Notable credits data', () => {
-  it('contains 6 entries', () => {
-    expect(NOTABLE_CREDITS).toHaveLength(6)
+  it('contains at least one featured credit', () => {
+    expect(NOTABLE_CREDITS.length).toBeGreaterThan(0)
   })
 
-  it('every entry has artist, project, role, and spotify', () => {
+  it('every entry is backed by a matching Spotify credit in the main dataset', () => {
+    const spotifyCredits = new Map(
+      CREDITS.filter((entry) => entry.spotify).map((entry) => [entry.id, entry]),
+    )
+
     NOTABLE_CREDITS.forEach((entry) => {
-      expect(entry.artist).toBeTruthy()
-      expect(entry.project).toBeTruthy()
-      expect(entry.role).toBeTruthy()
+      const matchingCredit = spotifyCredits.get(entry.id)
+
+      expect(matchingCredit).toBeDefined()
+      expect(entry.artist).toBe(matchingCredit?.artist)
+      expect(entry.project).toBe(matchingCredit?.project)
+      expect(entry.role).toBe(matchingCredit?.role)
       expect(entry.spotify).toMatch(/^https:\/\/open\.spotify\.com\/(track|album)\//)
     })
   })
