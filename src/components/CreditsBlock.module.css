@@ -5,7 +5,7 @@
 .label {
   font-size: 9px;
   letter-spacing: 0.1em;
-  color: var(--amber-ghost);
+  color: var(--amber-dim);
   margin-bottom: 12px;
   text-transform: uppercase;
 }
@@ -61,7 +61,7 @@
 }
 
 .role {
-  color: var(--amber-ghost);
+  color: var(--amber-dim);
   font-size: 9px;
   letter-spacing: 0.1em;
   min-width: 12px;

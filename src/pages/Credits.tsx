@@ -7,13 +7,13 @@ export default function Credits() {
   return (
     <PageLayout>
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>Released Co-Writes</h2>
+        <h2 className={`${styles.sectionTitle} ${styles.cowritesTitle}`}>Released Co-Writes</h2>
         <table className={styles.table}>
           <thead>
             <tr>
-              <th className={styles.th}>Artist</th>
-              <th className={styles.th}>Song</th>
-              <th className={styles.th}>Label</th>
+              <th className={`${styles.th} ${styles.cowritesTh}`}>Artist</th>
+              <th className={`${styles.th} ${styles.cowritesTh}`}>Song</th>
+              <th className={`${styles.th} ${styles.cowritesTh}`}>Label</th>
             </tr>
           </thead>
           <tbody>
@@ -42,14 +42,14 @@ export default function Credits() {
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>Production Credits</h2>
+        <h2 className={`${styles.sectionTitle} ${styles.creditsTitle}`}>Production Credits</h2>
         <table className={styles.table}>
           <thead>
             <tr>
-              <th className={styles.th}>Artist</th>
-              <th className={styles.th}>Project</th>
-              <th className={styles.th}>Label</th>
-              <th className={`${styles.th} ${styles.roleCol}`}>Role</th>
+              <th className={`${styles.th} ${styles.creditsTh}`}>Artist</th>
+              <th className={`${styles.th} ${styles.creditsTh}`}>Project</th>
+              <th className={`${styles.th} ${styles.creditsTh}`}>Label</th>
+              <th className={`${styles.th} ${styles.creditsTh} ${styles.roleCol}`}>Role</th>
             </tr>
           </thead>
           <tbody>
