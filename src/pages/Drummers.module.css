@@ -1,0 +1,290 @@
+.section {
+  margin-bottom: 48px;
+}
+
+.sectionTitle {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  border-bottom: 1px solid var(--amber-ghost);
+  padding-bottom: 10px;
+  margin: 0 0 24px 0;
+}
+
+.intro {
+  font-size: 11px;
+  color: var(--amber-dim);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  max-width: 640px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.axis {
+  position: relative;
+  height: 1400px;
+  padding: 8px 0 8px 56px;
+}
+
+.line {
+  position: absolute;
+  left: 56px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--amber-ghost);
+}
+
+.decade {
+  position: absolute;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--amber-dim);
+  width: 48px;
+  text-align: right;
+  pointer-events: none;
+}
+
+.decadeTick {
+  position: absolute;
+  left: 52px;
+  width: 8px;
+  height: 1px;
+  background: var(--amber-ghost);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.lifespan {
+  position: absolute;
+  left: 56px;
+  width: 1px;
+  background: var(--amber-dim);
+  opacity: 0.55;
+  transform: translateX(-0.5px);
+  pointer-events: none;
+}
+
+.dot {
+  position: absolute;
+  left: 56px;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--amber);
+  background: var(--black);
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s, border-color 0.15s;
+  z-index: 2;
+}
+
+.dot:hover,
+.dot:focus-visible {
+  background: var(--amber);
+  transform: translate(-50%, -50%) scale(1.15);
+  outline: none;
+}
+
+.dotActive {
+  background: var(--amber);
+  border-color: var(--amber-bright);
+}
+
+.dotLabel {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--amber-dim);
+  white-space: nowrap;
+  pointer-events: none;
+  text-transform: lowercase;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.dot:hover .dotLabel,
+.dot:focus-visible .dotLabel,
+.dotActive .dotLabel {
+  opacity: 1;
+  color: var(--amber);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.card {
+  border: 1px solid var(--amber-ghost);
+  background: var(--amber-faint);
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.card[open] {
+  border-color: var(--amber-dim);
+}
+
+.summary {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 12px 14px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition: background 0.15s;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary:hover {
+  background: var(--amber-ghost);
+}
+
+.caret {
+  font-size: 9px;
+  color: var(--amber-dim);
+  transition: transform 0.15s, color 0.15s;
+  width: 10px;
+  flex-shrink: 0;
+}
+
+.card[open] .caret {
+  transform: rotate(90deg);
+  color: var(--amber);
+}
+
+.name {
+  font-size: 12px;
+  color: var(--amber);
+  letter-spacing: 0.05em;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.dates {
+  font-size: 10px;
+  color: var(--amber-dim);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.styleTag {
+  font-size: 9px;
+  color: rgb(107 64 16 / 0.85);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.body {
+  padding: 4px 14px 16px 38px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contributions {
+  font-size: 11px;
+  color: var(--amber-dim);
+  line-height: 1.7;
+}
+
+.recordingsTitle {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 6px;
+}
+
+.recordings {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.recording {
+  font-size: 11px;
+  color: var(--amber-dim);
+  line-height: 1.6;
+}
+
+.recordingTitle {
+  color: var(--amber);
+}
+
+.recordingMeta {
+  color: rgb(107 64 16 / 0.7);
+}
+
+.recordingLink {
+  color: var(--amber);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.recordingLink:hover {
+  color: var(--amber-bright);
+  text-decoration: underline;
+}
+
+.note {
+  font-size: 10px;
+  color: rgb(107 64 16 / 0.7);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.emptyRecordings {
+  font-size: 10px;
+  color: rgb(107 64 16 / 0.7);
+  font-style: italic;
+}
+
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .axis {
+    display: none;
+  }
+
+  .summary {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+
+  .styleTag {
+    flex-basis: 100%;
+    padding-left: 24px;
+  }
+
+  .body {
+    padding-left: 24px;
+  }
+}
