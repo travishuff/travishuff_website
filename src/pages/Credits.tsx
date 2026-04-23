@@ -3,6 +3,15 @@ import { COWRITES } from '../data/cowrites'
 import { CREDITS } from '../data/credits'
 import styles from './Credits.module.css'
 
+function SpotifyCell({ href, label }: { href?: string; label: string }) {
+  if (!href) return <>{label}</>
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className={styles.spotifyLink}>
+      {label}
+    </a>
+  )
+}
+
 export default function Credits() {
   return (
     <PageLayout>
@@ -22,18 +31,7 @@ export default function Credits() {
                 <tr key={`${row.artist}-${row.song}`} className={styles.row}>
                   <td className={`${styles.td} ${styles.artist}`}>{row.artist}</td>
                   <td className={styles.td}>
-                    {row.spotify ? (
-                      <a
-                        href={row.spotify}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.spotifyLink}
-                      >
-                        {row.song}
-                      </a>
-                    ) : (
-                      row.song
-                    )}
+                    <SpotifyCell href={row.spotify} label={row.song} />
                   </td>
                   <td className={`${styles.td} ${styles.label}`}>{row.label}</td>
                 </tr>
@@ -60,18 +58,7 @@ export default function Credits() {
                 <tr key={row.id} className={styles.row}>
                   <td className={`${styles.td} ${styles.artist}`}>{row.artist}</td>
                   <td className={styles.td}>
-                    {row.spotify ? (
-                      <a
-                        href={row.spotify}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.spotifyLink}
-                      >
-                        {row.project}
-                      </a>
-                    ) : (
-                      row.project
-                    )}
+                    <SpotifyCell href={row.spotify} label={row.project} />
                   </td>
                   <td className={`${styles.td} ${styles.label}`}>{row.label}</td>
                   <td className={`${styles.td} ${styles.role}`}>{row.role}</td>

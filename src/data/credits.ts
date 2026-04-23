@@ -1,4 +1,4 @@
-export interface Credit {
+interface Credit {
   id: string
   artist: string
   project: string
@@ -7,7 +7,7 @@ export interface Credit {
   spotify?: string
 }
 
-export interface NotableCredit {
+interface NotableCredit {
   id: string
   artist: string
   project: string
