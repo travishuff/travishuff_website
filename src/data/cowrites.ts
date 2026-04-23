@@ -1,4 +1,4 @@
-export interface Cowrite {
+interface Cowrite {
   artist: string
   song: string
   label: string

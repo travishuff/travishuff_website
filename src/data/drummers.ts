@@ -1,4 +1,4 @@
-export interface DrummerRecording {
+interface DrummerRecording {
   title: string
   artist: string
   year: number

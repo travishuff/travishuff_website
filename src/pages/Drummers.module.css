@@ -232,10 +232,6 @@
   line-height: 1.6;
 }
 
-.recordingTitle {
-  color: var(--amber);
-}
-
 .recordingMeta {
   color: rgb(107 64 16 / 0.7);
 }
