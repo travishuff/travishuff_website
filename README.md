@@ -2,11 +2,12 @@
 
 Personal website for Travis Huff — producer, engineer, mixer, programmer.
 
-Built with React + TypeScript + Vite. Amber-on-black terminal aesthetic with IBM Plex Mono.
+Built with Bun, React, TypeScript, and Vite. Amber-on-black terminal aesthetic with IBM Plex Mono.
 
 ## Runtime
 
-- Node 25.8.1 (`.nvmrc` included)
+- [Bun](https://bun.sh/) 1.3.14
+- Dependencies are locked with `bun.lock`
 
 ## Pages
 
@@ -28,23 +29,32 @@ Built with React + TypeScript + Vite. Amber-on-black terminal aesthetic with IBM
 
 ## Development
 
+Install dependencies:
+
 ```bash
-nvm use
-npm install
-npm run dev       # http://127.0.0.1:5173
-npm run build     # outputs to dist/
+bun install --frozen-lockfile
 ```
 
-Project scripts automatically prefer the repo's `.nvmrc` version when `nvm` is available.
+Start the local dev server:
+
+```bash
+bun run dev
+```
+
+Build the production site:
+
+```bash
+bun run build
+```
 
 ## Linting & Formatting
 
 ```bash
-npm run lint          # ESLint
-npm run format        # Prettier (auto-fix)
-npm run format:check  # Prettier (check only)
-npm run typecheck     # TypeScript type checking
-npm run check         # lint + typecheck + unit tests
+bun run lint          # ESLint
+bun run format        # Prettier (auto-fix)
+bun run format:check  # Prettier (check only)
+bun run typecheck     # TypeScript type checking
+bun run check         # lint + typecheck + unit tests
 ```
 
 ## Testing
@@ -54,11 +64,11 @@ npm run check         # lint + typecheck + unit tests
 Unit tests use [Vitest](https://vitest.dev/) + [Testing Library](https://testing-library.com/docs/react-testing-library/intro/) with jsdom.
 
 ```bash
-npm test          # watch mode
-npm run test:run  # single run
+bun run test      # watch mode
+bun run test:run  # single run
 ```
 
-50 tests across 8 files cover components, pages, and data integrity:
+48 tests across 8 files cover components, pages, and data integrity:
 
 - `CyclingTitle` — title cycling, interval cleanup
 - `Ticker` — content rendering, aria-hidden duplicate
@@ -74,10 +84,10 @@ npm run test:run  # single run
 E2E tests use [Playwright](https://playwright.dev/) with Chromium (auto-starts the dev server).
 
 ```bash
-npm run test:e2e  # run all e2e tests
+bun run test:e2e  # run all e2e tests
 ```
 
-29 tests across 6 specs:
+30 tests across 6 specs:
 
 - **Routes** — all 3 pages render correctly, unknown routes redirect to homepage, `/discography` redirects to homepage, navigation between pages works
 - **Spotify links** — 6 links with correct URLs, `target="_blank"`, `rel="noopener noreferrer"`
@@ -90,6 +100,6 @@ npm run test:e2e  # run all e2e tests
 
 Pushing to `main` triggers a GitHub Actions workflow that:
 
-1. Installs dependencies (`npm ci`)
-2. Builds the site (`npm run build`)
+1. Installs dependencies (`bun install --frozen-lockfile`)
+2. Builds the site (`bun run build`)
 3. Uploads `dist/` to the server via FTP
