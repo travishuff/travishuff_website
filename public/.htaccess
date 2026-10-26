@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Keep each public hostname while upgrading requests to HTTPS.
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP_HOST} ^www\.travishuff\.com\.?(:80)?$ [NC]
+RewriteRule ^ https://www.travishuff.com%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://travishuff.com%{REQUEST_URI} [R=301,L]
